@@ -4,8 +4,8 @@ Trabalho desenvolvido durante a disciplina de Banco de Dados do Integrado
 # Sumário
 
 ### 1. COMPONENTES<br>
-Integrantes do grupo<br>
-primeiro_componente_do_grupo:email_primeiro_componente@dominio.com<br>
+Integrantes do grupo<br
+laira:email_primeiro_componente@dominio.com<br>
 segundo_componente_do_grupo:email_segundo_componente@dominio.com<br>
 ...
 
