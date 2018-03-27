@@ -27,14 +27,14 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
 
 > O sisitema proposto para o "remedmex" terá salvo em seus bancos e dados as informações dos usuários para <b>cadastro</b>, que ficarão registradas em cada conta, assim como seu login e senha, email, número de telefone e cidade. Juntamente a essas informações, o usuário também irá informar outros dados, como por exemplo, se possui alergia a alguma medicação, plano de saúde (se possuir), idade, sexo, se faz uso de alguma medicação recorrente e se possui alguma doença crônica. O sistema terá que armazenar bancos de dados dos sintomas de várias doenças, se há ocorrência de epidemias na região e asssociar os sintomas do usuário a essas informações.
-<br>
->Para que não ocorra equívocos no resultado da análise, o sistema terá que fazer algumas perguntas que envolvam o estado físico e psicológico dessas pessoas. A partir das respostas, um resultado será gerado com base nos bancos de dados, levando em conta as especificações de cada pessoa, e assim, o dispositivo irá indicar o medicamento ideal para tal situação.
-<br>
->Para ajudar no controle da medicação, o sistema enviará notificações para o usuário nos respectivos horários da(s) medicação(ões).
-<br>
->Como muitos sintomas são os mesmos em várias doenças, o sistema fará essa mesma análise em vários dias seguidos, e, se os sintomas se repetirem e/ou intensificarem, o dispositivo indica que a pessoa procure auxílio médico.
-<br>
->Nesse caso, o sistema verifica a localização da pessoa e procura os hospitais da região que possuem convênio com o plano de saúde do usuário, se ele possuir um. indicando, assim, o local mais próximo para atentimento hospitalar.
+
+Para que não ocorra equívocos no resultado da análise, o sistema terá que fazer algumas perguntas que envolvam o estado físico e psicológico dessas pessoas. A partir das respostas, um resultado será gerado com base nos bancos de dados, levando em conta as especificações de cada pessoa, e assim, o dispositivo irá indicar o medicamento ideal para tal situação.
+
+Para ajudar no controle da medicação, o sistema enviará notificações para o usuário nos respectivos horários da(s) medicação(ões).
+
+Como muitos sintomas são os mesmos em várias doenças, o sistema fará essa mesma análise em vários dias seguidos, e, se os sintomas se repetirem e/ou intensificarem, o dispositivo indica que a pessoa procure auxílio médico.
+
+Nesse caso, o sistema verifica a localização da pessoa e procura os hospitais da região que possuem convênio com o plano de saúde do usuário, se ele possuir um. indicando, assim, o local mais próximo para atentimento hospitalar.
 
 ### 4.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 Neste ponto a codificação não e necessária, somente as ideias de telas devem ser desenvolvidas. O princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas e/ou descartadas <br>
