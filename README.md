@@ -13,7 +13,7 @@ maria eduarda: dudah.jbraga@gmail.com<br>
 Este documento contém a especificação do projeto do banco de dados <remedmax> 
 <br>e motivação da escolha realizada. <br>
  
- > O sistema da empresa "remedmex" tem como intuito gerenciar a saúde das pessoas. O usuário informa quais sintomas está sentindo e, logo em seguida, o aplicativo os verifica em seus banco de dados, analisa as possíveis causas e obtém um diagnóstico, indicando um medicamento de acordo com as especificações de cada pessoa. O objetivo é que o software ajude a diminuir os casos de pessoas que têm seus estados de saúde agravados por não terem buscado auxílio médico antes. Nesse quesito, o aplicativo indicaria, caso fosse necessário, que o usúario buscasse atendimento médico, evitando tais enfermidades.
+ > O sistema da empresa "remedmex" tem como intuito gerenciar a saúde das pessoas. O usuário informa qual o diagnóstico obtido pelo médico, o aplicativo armazena em seu banco de dados, e analisa a ocorrência da doença na região. Se a ocôrrencia for frequente na região, o aplicativo informa um alerta de possível epidemia. Juntamente a isso, o usuário pode informar qual medicação está usando, e o dispositivo, além de mandar um alerta nos horários das medicações, da sugestões de genéricos e/ou outros remédios que podem s . causas e obtém um diagnóstico, indicando um medicamento de acordo com as especificações de cada pessoa. O objetivo é que o software ajude a diminuir os casos de pessoas que têm seus estados de saúde agravados por não terem buscado auxílio médico antes. Nesse quesito, o aplicativo indicaria, caso fosse necessário, que o usúario buscasse atendimento médico, evitando tais enfermidades.
 
 ### 3.MINI-MUNDO Novo<br>
 
