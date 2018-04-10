@@ -46,11 +46,11 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
     
-> A Empresa DevCom precisa inicialmente dos seguintes relatórios:
-* Relatório que informe quais são os gerentes de cada departamento incluindo as seguintes informações: número do departamento,  nome do departamento, e nome do gerente.
-* Relatório de empregados por projeto incluindo as seguintes informações: número do projeto, nome do projeto, rg do empregado, nome do empregado e quantidade de horas de trabalho do empregado alocadas ao projeto.
-* Relatório de empregados com dependentes incluindo as seguintes informações: rg do empregado, nome do empregado, nome do dependente, tipo de relação, data de nascimento do dependente e sexo do dependente.
-* Relatório com a quantidade de empregados por cada departamento incluindo as seguintes informações: nome do departamento, supervisor e quantidade de empregados alocados no departamento.
+> A remedemex precisa inicialmente dos seguintes relatórios:
+* Relatório de cadastro que informe sobre o paciente: nome e sobrenome, email, uma senha acessível, idade, sexo, peso e altura.
+* Relatório de consulta que informará: especialização e sugestão de médicos, consultas marcadas, hospitais e horários disponíveis.
+* Relatório de medicação que indicará: remédios e horário específico.
+* Relatório com dados gerais para registrar a consulta que informará: o médico, hospital, data, diagnóstico e a receita.
 * Relatório de supervisores e supervisionados incluindo as seguintes informações: nome do supervisor e nome do supervisionado.
  
  
