@@ -1,4 +1,4 @@
-# TRABALHO 01: REMEDMAX
+# TRABALHO 01: REMEDMEX
 Trabalho desenvolvido durante a disciplina de Banco de Dados do Integrado
 
 # Sumário
@@ -23,7 +23,7 @@ Descrição textual das regras de negócio definidas como um  subconjunto do mun
 cujos elementos são propriedades que desejamos incluir, processar, armazenar, 
 gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
-> O sisitema proposto para o "remedmex" terá salvo em seu bancos e dados as informações dos usuários para <b>cadastro</b>, que ficarão registradas em cada conta, assim como seu login e senha, email, número de telefone e cidade. Juntamente a essas informações, o usuário também irá informar outros dados, como por exemplo, se possui alergia a alguma medicação, plano de saúde (se possuir), idade, sexo, se faz uso de alguma medicação recorrente e se possui alguma doença crônica. O sistema terá que armazenar bancos de dados dos sintomas de várias doenças, se há ocorrência de epidemias na região e asssociar os sintomas do usuário a essas informações locais.
+> O sistema proposto para o "remedmex" terá salvo em seu bancos e dados as informações dos usuários para <b>cadastro</b>, que ficarão registradas em cada conta, assim como seu login e senha, email, número de telefone e cidade. Juntamente a essas informações, o usuário também irá informar outros dados, como por exemplo, se possui alergia a alguma medicação, plano de saúde (se possuir), idade, sexo, se faz uso de alguma medicação recorrente e se possui alguma doença crônica. O sistema terá que armazenar bancos de dados dos sintomas de várias doenças, se há ocorrência de epidemias na região e asssociar os sintomas do usuário a essas informações locais.
 
 > Para que não ocorra equívocos no resultado da análise, o sistema terá que fazer algumas perguntas que envolvam o estado físico e psicológico dessas pessoas. A partir das respostas, um resultado será gerado com base nos bancos de dados, levando em conta as especificações de cada pessoa, e assim, o dispositivo irá indicar o medicamento ideal para tal situação.
 
@@ -51,7 +51,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 * Relatório de consulta que informará: especialização e sugestão de médicos, consultas marcadas, hospitais e horários disponíveis.
 * Relatório de medicação que indicará: remédios e horário específico.
 * Relatório com dados gerais para registrar a consulta que informará: o médico, hospital, data, diagnóstico e a receita.
-* Relatório que armazenará uma diagnóstico e localizará o local, registrando: locais com epidemias.
+* Relatório que armazenará uma diagnóstico, localizará o local e registrará: locais com epidemias.
  
  
 #### 4.2 TABELA DE DADOS DO SISTEMA:
