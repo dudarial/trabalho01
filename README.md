@@ -47,11 +47,11 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
     
 > A remedemex precisa inicialmente dos seguintes relatórios:
-* Relatório de cadastro que informe sobre o paciente: nome e sobrenome, email, uma senha acessível, idade, sexo, peso e altura.
+* Relatório de cadastro que informe as seguintes informações sobre o paciente: nome e sobrenome, email, uma senha acessível, idade, sexo, peso e altura.
 * Relatório de consulta que informará: especialização e sugestão de médicos, consultas marcadas, hospitais e horários disponíveis.
 * Relatório de medicação que indicará: remédios e horário específico.
 * Relatório com dados gerais para registrar a consulta que informará: o médico, hospital, data, diagnóstico e a receita.
-* Relatório de supervisores e supervisionados incluindo as seguintes informações: nome do supervisor e nome do supervisionado.
+* Relatório que armazenará uma diagnóstico e localizará o local, registrando: locais com epidemias.
  
  
 #### 4.2 TABELA DE DADOS DO SISTEMA:
