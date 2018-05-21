@@ -38,7 +38,7 @@ Neste ponto a codificação não e necessária, somente as ideias de telas devem
 
 Sugestão: https://balsamiq.com/products/mockups/<br>
 
-![Alt text](https://github.com/discipbd1/trab01/blob/master/balsamiq.png?raw=true "Title")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/arquivos/remedmex.pdf "Remedmex")
 ![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/remedmax/trabalho01/blob/master/arquivos/remedmex.pdf?raw=true "Empresa Remedmex")
 
 
