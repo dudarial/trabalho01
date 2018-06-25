@@ -13,7 +13,7 @@ maria eduarda: dudah.jbraga@gmail.com<br>
 Este documento contém a especificação do projeto do banco de dados <remedmax> 
 <br>e motivação da escolha realizada. <br>
  
- > O sistema da empresa "remedmex" tem como intuito gerenciar a saúde das pessoas. O usuário informa qual o diagnóstico obtido pelo médico, o aplicativo armazena em seu banco de dados, e analisa a ocorrência da doença na região. Se a ocôrrencia for frequente na região, o aplicativo informa um alerta de possível epidemia. Juntamente a isso, o usuário pode informar qual medicação está usando, e o dispositivo, além de mandar um alerta nos horários das medicações, da sugestões de genéricos e/ou outros remédios que podem s . causas e obtém um diagnóstico, indicando um medicamento de acordo com as especificações de cada pessoa. O objetivo é que o software ajude a diminuir os casos de pessoas que têm seus estados de saúde agravados por não terem buscado auxílio médico antes. Nesse quesito, o aplicativo indicaria, caso fosse necessário, que o usúario buscasse atendimento médico, evitando tais enfermidades.
+ > O sistema da empresa "remedmex" tem como intuito gerenciar a saúde das pessoas. O usuário informa qual o diagnóstico obtido pelo médico, o aplicativo armazena em seu banco de dados, e analisa a ocorrência da doença na região. Se a ocôrrencia for frequente na região, o aplicativo informa um alerta de possível epidemia. Juntamente a isso, o usuário pode informar qual medicação está usando, e o dispositivo, além de mandar um alerta nos horários das medicações, sugestões de genéricos e/ou outros remédios que podem ser úteis, indicando um medicamento de acordo com as especificações de cada pessoa. O objetivo é que o software ajude a diminuir os casos de pessoas que têm seus estados de saúde agravados por não terem buscado auxílio médico antes. Nesse quesito, o aplicativo indicaria, caso fosse necessário, que o usúario buscasse atendimento médico, evitando tais enfermidades.
 
 ### 3.MINI-MUNDO Novo<br>
 
@@ -23,15 +23,7 @@ Descrição textual das regras de negócio definidas como um  subconjunto do mun
 cujos elementos são propriedades que desejamos incluir, processar, armazenar, 
 gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
-> O sistema proposto para o "remedmex" terá salvo em seu bancos e dados as informações dos usuários para <b>cadastro</b>, que ficarão registradas em cada conta, assim como seu login e senha, email, número de telefone e cidade. Juntamente a essas informações, o usuário também irá informar outros dados, como por exemplo, se possui alergia a alguma medicação, plano de saúde (se possuir), idade, sexo, se faz uso de alguma medicação recorrente e se possui alguma doença crônica. O sistema terá que armazenar bancos de dados dos sintomas de várias doenças, se há ocorrência de epidemias na região e asssociar os sintomas do usuário a essas informações locais.
-
-> Para que não ocorra equívocos no resultado da análise, o sistema terá que fazer algumas perguntas que envolvam o estado físico e psicológico dessas pessoas. A partir das respostas, um resultado será gerado com base nos bancos de dados, levando em conta as especificações de cada pessoa, e assim, o dispositivo irá indicar o medicamento ideal para tal situação.
-
-> Para ajudar no controle da medicação, o sistema enviará notificações para o usuário nos respectivos horários da(s) medicação(ões).
-
-> Como muitos sintomas são os mesmos em várias doenças, o sistema fará essa mesma análise em vários dias seguidos, e, se os sintomas se repetirem e/ou intensificarem, o dispositivo indica que a pessoa procure auxílio médico.
-
-> Nesse caso, o sistema verifica a localização da pessoa e procura os hospitais da região que possuem convênio com o plano de saúde do usuário, se ele possuir um. indicando, assim, o local mais próximo para atentimento hospitalar.
+> O sistema proposto para o "remedmex" terá salvo em seu banco e dados as informações dos usuários para <b>cadastro</b>, que ficarão registradas em cada conta, assim como seu login e senha. Juntamente a essas informações, o usuário também irá informar outros dados, como por exemplo idade, sexo, peso, altura e email. Contudo, também deverá informar dados de sua saúde, como: Convênio, número da carteirinha, número do sus, tipo sanguíneo, se faz uso de alguma medicação recorrente, se possui alguma doença crônica e/ou alguma alergia. Caso o paciente faça uso de alguma medicação, o aplicativo notificará nos respectivos horários desta. O sistema terá que armazenar no banco de dados os sintomas de várias doenças, se há ocorrência de epidemias na região e asssociar os sintomas do usuário a essas informações locais.
 
 ### 4.RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 Neste ponto a codificação não e necessária, somente as ideias de telas devem ser desenvolvidas. O princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas e/ou descartadas <br>
