@@ -30,8 +30,10 @@ Neste ponto a codificação não e necessária, somente as ideias de telas devem
 
 Sugestão: https://balsamiq.com/products/mockups/<br>
 
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/arquivos/remedmex.pdf "Remedmex")
-![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/remedmax/trabalho01/blob/master/arquivos/remedmex.pdf?raw=true "Empresa Remedmex")
+![Alt text]
+(https://github.com/remedmax/trabalho01/blob/master/arquivos/remedmex.pdf "Remedmex")
+![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom]
+(https://github.com/remedmax/trabalho01/blob/master/arquivos/remedmex.pdf?raw=true "Empresa Remedmex")
 
 
 #### 4.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
@@ -52,8 +54,8 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     e deve ser criada antes do modelo conceitual
     c) Após criada esta tabela não deve ser modificada, pois será comparada com os resultados finais na conclusão do trabalho
     
- ![Exemplo de Tabela de dados da Empresa Devcom](https://github.com/discipint/trabalho01/blob/master/arquivos/TabelaEmpresaDevCom_sample.xlsx?raw=true "Tabela - Empresa Devcom")
-    
+ ![Exemplo de Tabela de dados do Programa Remedmex](https://github.com/remedmax/trabalho01/blob/master/arquivos/DadosProgramaRemedmex%20(1).xlsx?raw=true "Tabela - Programa Remedmex")
+ 
 >## Marco de Entrega 01 em: (24/03/2018)<br>
 
 ### 5.MODELO CONCEITUAL<br>
@@ -62,7 +64,8 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         * O protótipo deve possui no mínimo duas relações N para N
         * o mínimo de entidades do modelo conceitual será igual a 5
         
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/arquivos/remedmex.pdf?raw=true "Modelo Conceitual")
+![Modelo Conceitual - Remedmex]
+(https://github.com/remedmax/trabalho01/blob/master/arquivos/remedmex.pdf?raw=true "Modelo Conceitual")
     
     B) NOTACAO UML (Caso esteja fazendo a disciplina de analise)
     C) QUALIDADE 
