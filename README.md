@@ -80,11 +80,8 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 #### 5.2 DECISÕES DE PROJETO
     [atributo]: [descrição da decisão]
     
-    Optamos por não especificar o campo medicação, visto que exige muitas tabelas e dados, decidimos fazê-los depois.
-    EXEMPLO:
-    a) Campo endereço: em nosso projeto optamos por um campo multivalorado e composto, pois a empresa 
-    pode possuir para cada departamento mais de uma localização... 
-    b) justifique!
+    - Optamos por não especificar o campo medicação, visto que exige muitas tabelas e dados, decidimos fazê-los depois.
+    - Decidimos incluir as relações de localidade do hospital posteriormente, pois o trabalho já possui muitas extensões.
 
 #### 5.3 DESCRIÇÃO DOS DADOS 
     [objeto]: [descrição do objeto]
