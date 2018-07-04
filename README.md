@@ -80,8 +80,8 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 #### 5.2 DECISÕES DE PROJETO
     [atributo]: [descrição da decisão]
     
-    - Optamos por não especificar o campo medicação, visto que exige muitas tabelas e dados, decidimos fazê-los depois.
-    - Decidimos incluir as relações de localidade do hospital posteriormente, pois o trabalho já possui muitas extensões.
+    [Medicação]: Optamos por não especificar o campo medicação, visto que exige muitas tabelas e dados, decidimos fazê-los depois.
+    [Hospital - localidade]: Decidimos incluir as relações de localidade do hospital posteriormente, pois o trabalho já possui muitas extensões.
 
 #### 5.3 DESCRIÇÃO DOS DADOS 
     [objeto]: [descrição do objeto]
