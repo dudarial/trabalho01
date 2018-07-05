@@ -94,7 +94,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 ### 6	MODELO LÓGICO<br>
         a) inclusão do modelo lógico do banco de dados:
    ![Alt text]
-    (https://github.com/remedmax/trabalho01/blob/master/imagens/L%C3%B3gico_1.png?raw=true "Modelo Lógico")
+    (https://github.com/remedmax/trabalho01/blob/master/imagens/L%C3%B3gico_1.png - "Modelo Lógico")
      
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
