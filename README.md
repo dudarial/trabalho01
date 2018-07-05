@@ -89,6 +89,56 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     EXEMPLO:
     CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
     CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
+    
+    Pessoa: Tabela que constitui os dados do usuario.
+    CPF: Campo que armazena o número de Cadastro de Pessoa Física de cada usuario.
+    CEP: Campo que determina a localização da pessoa.
+    Email: Campo que informa um meio de comunicação.
+    Sexo: Campo que determina o genero da pessoa.
+    Altura: Campo que informa o tamanho da pessoa.
+    Peso: Campo que informa quanto a pessoa pesa.
+    Dt_nascimento: Campo que informa a idade da pessoa.
+    Nº_carteirinha: Campo que informa o número de carteirinha da pessoa, caso ela tiver.
+    Nº_sus: Campo que informa o número do sus, caso ela não tiver um convenio.
+    Alergias: Campo que informa se a pessoa é ou não alérgica, caso for, mostra a alergia.
+    Doenças_cronicas: Campo que informa se a pessoa contém ou não um tipo de doença cronica.
+    Tp_sanguineo: Campo que informa o tipo sanguineo do usuario.
+    Complemento: Campo que informa o tipo de lugar em que a pessoa mora, caso ela tiver.
+    Convenio: Campo que informa o nome do convenio particular, caso a pessoa tiver.
+    Nº_residencia: Campo que informa o numero do complemento.
+    FK_bairro: Campo que informa o código de localização do bairro em que a pessoa mora.
+    
+    Hospital: Tabela que constitui os dados de cada hospital.
+    Nome: Campo que indica o nome de um determinado hospital.
+    Cod_hospital: Campo que atribui um codigo para o hospital.
+    
+    Estado: Tabela que constitui as informações de cada estado.
+    Nome: Campo que indica o nome de um determinado estado.
+    Cod_estado: Campo que atribui um codigo para o estado.
+    
+    Cidade: Tabela que constitui os dados de cada cidade.
+    Nome: Campo que indica o nome de um determinado cidade.
+    Cod_cidade: Campo que atribui um codigo para o cidade.
+    FK_estado: Campo que informa o codigo do estado em que a cidade de localiza.
+    
+    Bairro: Tabela que constitui os dados de cada bairro.
+    Nome: Campo que indica o nome de um determinado bairro.
+    Cod_bairro: Campo que atribui um codigo para o bairro.
+    FK_cidade: Campo que informa o codigo da cidade em que o bairro de localiza.
+    
+    Diagnóstivo: Tabela que constitui as informações após a consulta.
+    Cod_diag: Campo que atribui um codigo para identificar uma receita e doença.
+    Receita: Campo  que informa o tratamento.
+    Doença: Campo que informa o que o usuario tem.
+    
+    Consulta: Tabela que constitui todas as informações do atendimento ao usuario.
+    Dt_consulta: Campo que indica a data em que o usuario foi atendido.
+    Horas: Campo que informa o horário da consulta.
+    Status: Campo que indica se a consulta foi, ou não realizada.
+    Fk_pessoa_cpf: Campo que indicada o cpf da pessoa consultada.
+    Fk_hospital: Campo que indica o hospital em que o atendimento foi feito.
+    Fk_bairro: Campo que indica o bairro em que a pessoa e o hospital se localiza.
+
 
 >## Marco de Entrega 01 em: (12/05/2018)<br>
 ### 6	MODELO LÓGICO<br>
@@ -311,28 +361,28 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
 	
-select * from pessoa;
+select * from pessoa; <br>
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/pessoa.png?raw=true "Pessoa")
 
-select * from consulta;
+select * from consulta; <br>
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/consulta.png?raw=true "Consulta")
 
-select * from hospital;
+select * from hospital; <br>
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/hospital.png?raw=true "Hospital")
 
-select * from diagnóstico;
+select * from diagnóstico; <br>
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/diag.png?raw=true "Diagnostico")
 
-select * from estado;
+select * from estado; <br>
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/estado.png?raw=true "Estado")
 
-select * from cidade;
+select * from cidade; <br>
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/cidade.png?raw=true "Cidade")
 
-select * from bairro;
+select * from bairro; <br>
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/bairro.png?raw=true "Bairro")
 
-select * from hospital2;
+select * from hospital2; <br>
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/createHosp2.png?raw=true "Hospital2")
 
 
@@ -364,13 +414,28 @@ select * from hospital where cod_hospital > 20;
 	select dt_consulta,cod_consulta as "codigo_consulta" from consulta;
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
-    a) Criar outras 5 consultas que envolvam like ou ilike
+    a) Criar outras 5 consultas que envolvam like ou ilike:
+	select alergias from pessoa where alergias ilike '%e%';
+	select nome from pessoa where nome like 'L%';
+	select * from hospital where nome like 'S%';
+	select * from diagnóstico where doença ilike '%l%';
+	select receita from diagnóstico where receita like 'A%';
+	
     b) Criar uma consulta para cada tipo de função data apresentada.
+	select now();
+	select current_date;
+	select current_time;
+	select age(current_date, ('2018/04/11'));
+	select date_part('year',age(current_date, ('2018/04/11')));
+	extract ('year' from ('2018/04/11'));
 
-
-    
 #### 9.5	ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
-
+	drop table pessoa;
+	drop table hospital;
+	drop table consulta;
+	alter table consulta drop hora;
+	update consulta set cod_consulta = 7 where cod_consulta = 8;
+	update pessoa set nome = João where nome = Leonardo;
 
 #### 9.6	CONSULTAS COM JUNÇÃO E ORDENAÇÃO (Mínimo 6)<br>
         a) Uma junção que envolva todas as tabelas possuindo no mínimo 3 registros no resultado
