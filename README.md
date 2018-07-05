@@ -31,7 +31,7 @@ Neste ponto a codificação não e necessária, somente as ideias de telas devem
 Sugestão: https://balsamiq.com/products/mockups/<br>
 
 
-![Alt text](https://github.com/remedmax/trabalho01/tree/master/imagens?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/baaaaaaay.png?raw=true "Modelo Conceitual")
 
 
 ![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom]
