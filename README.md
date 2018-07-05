@@ -70,8 +70,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     C) QUALIDADE 
         Garantir que a semântica dos atributos seja clara no esquema
         Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
-        e tuplas falsas
-    
+        e tuplas falsas.
         
     
 #### 5.1 Validação do Modelo Conceitual
@@ -101,8 +100,105 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas DDL 
-        (criação de tabelas, alterações, etc..)          
-        
+        (criação de tabelas, alterações, etc..)         
+    CREATE TABLE PESSOA (
+     CPF varchar(20) PRIMARY KEY,
+     nome varchar(30),
+     email varchar(45),
+     sexo char,
+     altura int,
+     dt_nascimento date,
+     peso int,
+     n_carteirinha varchar(20),
+     n_sus varchar(20),
+     alergias varchar(30),
+     doencas_cronicas varchar(30),
+     tp_sanguineo char(3),
+     CEP varchar(20),
+     complemento varchar(20),
+     convenio varchar(20),
+     n_residencia int,
+     FK_BAIRRO_cod_bairro int
+     );
+
+    CREATE TABLE CONSULTA (
+    dt_consulta date,
+    hora time,
+    status varchar(30),
+    cod_consulta int PRIMARY KEY,
+    FK_PESSOA_CPF varchar(20),
+    FK_HOSPITAL_cod_hospital int,
+    FK_DIAGNÓSTICO_cod_diag int );
+
+    CREATE TABLE HOSPITAL (
+    nome varchar(30),
+    cod_hospital int PRIMARY KEY );
+
+    CREATE TABLE DIAGNÓSTICO (
+    cod_diag int PRIMARY KEY,
+    receita varchar(30),
+    doença varchar(10) );
+
+    CREATE TABLE BAIRRO (
+    nome varchar(30),
+    cod_bairro int PRIMARY KEY,
+    FK_CIDADE_cod_cidade int );
+
+    CREATE TABLE CIDADE (
+    nome varchar(30),
+    cod_cidade int PRIMARY KEY,
+    FK_ESTADO_cod_estado int );
+
+CREATE TABLE ESTADO (
+    nome varchar(30),
+    cod_estado int PRIMARY KEY
+);
+
+    CREATE TABLE Trabalha (
+    FK_HOSPITAL_cod_hospital int,
+    FK_PESSOA_CPF varchar(20));
+ 
+    ALTER TABLE PESSOA ADD CONSTRAINT FK_PESSOA_1
+     FOREIGN KEY (FK_BAIRRO_cod_bairro)
+     REFERENCES BAIRRO (cod_bairro)
+     ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+    ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_1
+     FOREIGN KEY (FK_PESSOA_CPF, FK_PESSOA_CPF_)
+     REFERENCES PESSOA (CPF, CPF)
+     ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+    ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_2
+     FOREIGN KEY (FK_HOSPITAL_cod_hospital)
+     REFERENCES HOSPITAL (cod_hospital)
+     ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+    ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_3
+     FOREIGN KEY (FK_DIAGNÓSTICO_cod_diag)
+     REFERENCES DIAGNÓSTICO (cod_diag)
+     ON DELETE CASCADE ON UPDATE CASCADE;
+ 
+    ALTER TABLE BAIRRO ADD CONSTRAINT FK_BAIRRO_1
+     FOREIGN KEY (FK_CIDADE_cod_cidade)
+     REFERENCES CIDADE (cod_cidade)
+     ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+    ALTER TABLE CIDADE ADD CONSTRAINT FK_CIDADE_1
+     FOREIGN KEY (FK_ESTADO_cod_estado)
+     REFERENCES ESTADO (cod_estado)
+     ON DELETE RESTRICT ON UPDATE RESTRICT;
+ 
+    ALTER TABLE Trabalha ADD CONSTRAINT FK_Trabalha_0
+     FOREIGN KEY (FK_HOSPITAL_cod_hospital)
+     REFERENCES HOSPITAL (cod_hospital)
+     ON DELETE SET NULL ON UPDATE CASCADE;
+ 
+    ALTER TABLE Trabalha ADD CONSTRAINT FK_Trabalha_1
+     FOREIGN KEY (FK_PESSOA_CPF)
+     REFERENCES PESSOA (CPF)
+     ON DELETE SET NULL ON UPDATE CASCADE;
+
+         
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
         a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físic
