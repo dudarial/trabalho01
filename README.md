@@ -149,10 +149,9 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     cod_cidade int PRIMARY KEY,
     FK_ESTADO_cod_estado int );
 
-CREATE TABLE ESTADO (
+    CREATE TABLE ESTADO (
     nome varchar(30),
-    cod_estado int PRIMARY KEY
-);
+    cod_estado int PRIMARY KEY);
 
     CREATE TABLE Trabalha (
     FK_HOSPITAL_cod_hospital int,
@@ -203,6 +202,88 @@ CREATE TABLE ESTADO (
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
         a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físic
         b) formato .SQL
+        
+        insert into HOSPITAL (nome, cod_hospital)
+	    values
+       	('Jayme', 10),
+        ('Metropolitano', 17),
+        ('Unimed Vitória', 18),
+        ('Posto de Saúde', 12),
+        ('Apart', 21),
+        ('Santa Casa', 53),
+        ('Santa Monica', 13),
+        ('Vitoria Apart', 11),
+        ('São camilo', 44);
+        
+        insert into PESSOA (nome, sexo, peso, altura, email, alergias, doencas_cronicas, tp_sanguineo, dt_nascimento, cpf, cep, n_carteirinha, n_sus, convenio, n_residencia, complemento, FK_BAIRRO_cod_bairro, )
+	values
+    ('Ricardo', 'M', 76, 180, 'ricardo@gmail.com', 'Pêlo de gato', 'Colesterol alto', 'AB+', '2001/03/10', '123.321.789-00', '21-189.122', '123.321.789', '123.321.700', 'Samp', 39, 'Casa', 55), 
+    ('Maria', 'F', 45, 160, 'maria@gmail.com', 'Picada de mosquito', 'Nenhuma', 'AB-', '2002/03/03', '231.123.987-00', '20-190.091', '144.556.700', '144.556.789', 'São Bernardo', 880, 'Apartamento', 23),
+    ('Lucas', 'M', 80, 190, 'lucas@gmail.com', 'Dermatite de contato', 'Nenhuma', 'AB-', '1999/12/10', '145.541.789-00', '19-123.098', '145.541.789', '876.678.123', 'Unimed', 34, 'Casa', 22), 
+ 	('Bernardo', 'M', 58, 177, 'bernardo@gmail.com', 'Nenhuma', 'Hipertensão', 'O-', '1998/09/12', '345.543.897-00', '18-234.097', '345.543.897', '789.876.321', 'Sus', 21, 'Casa alugada', 33), 
+	('Leonardo', 'M', 78, 198, 'leonardo@gmail.com', 'Nenhuma', 'Diabete', 'AB+', '1999/01/04', '456.654.654-00', '17-345.096', '456.654.654', '123.321.789', 'Samp', 90, 'Apartamento', 45), 
+	('Patricia', 'M', 34, 155, 'patricia@gmail.com', 'À poeira', 'Asma', 'AB+', '1997/09/08', '567.765.554-00', '16-456.095', '567.765.554', '144.556.700', 'Samp', 800, 'Apartamento', 21), 
+	('Elisa', 'F', 50, 189, 'elisa@gmail.com', 'Rinite alérgica', 'Asma', 'AB-', '2001/11/16', '678.876.432-00', '15-567094', '678.876.432', '145.541.789', 'Samp', 765, 'Apartamento', 12), 
+	('Carmem', 'F', 64, 179, 'carmem@gmail.com', 'Dermatite atópica', 'Nenhuma', 'O-', '1998/08/27', '789.876.321-00', '14-678093', '789.876.321', '345.543.897', 'Sus', 345, 'Casa', 39), 
+	('Gustavo', 'M', 55, 198, 'gustavo@gmail.com', 'Nenhuma', 'Diabete', 'O-', '2001/07/12', '876.678.123-00', '13-789.092', '876.678.123', '456.654.654', 'Unimed', 654, 'Casa', 89);
+
+    insert into DIAGNOSTICO (cod_diag, receita, doença) 
+	values
+    	(12, 'Dieta lvre de gordura', 'Colesterol'),
+        (80, 'Analgésicos', 'Dengue'),
+        (81, 'Insulina', 'Diabete'),
+        (21, 'Vitamina', 'Anemina'),
+        (22, 'Relaxamento', 'Enxaqueca'),
+        (65, 'Antinflamatório', 'Resfriado'),
+        (66, 'Anti-histaminico', 'Caxumba'),
+        (43, 'Corticoide', 'Asma'),
+        (47, 'Broncodilatador', 'Asma');
+        
+    INSERT INTO bairro (nome, cod_bairro, FK_CIDADE_cod_cidade) VALUES
+    	('Laranjeiras', 54, 34),
+	('Santa Rosa', 23, 33),
+	('Itararé', 22, 33),	
+	('Jacaraipe', 33, 34),
+	('Itapuã', 45, 53 ),
+	('jardim da Penha', 21, 33),
+	('Vila Rubim', 12, 33),
+	('Jacaraipe', 39, 34),
+	('Itaparica', 89, 53);
+
+  
+    INSERT INTO cidade (nome, cod_cidade, FK_ESTADO_cod_estado) VALUES 
+	      ('Serra', 34, 27),
+	      ('Vitoria', 33, 27),
+	      ('Pedra azul', 28, 27),
+	      ('Cariacica', 44, 27),
+      	('Vila Velha', 53, 27),
+      	('Venda Nova', 35, 27),
+	      ('Aracruz', 36, 27),
+      	('Afonso Cláudio', 12, 27),
+      	('Marechal Floriano', 66, 27);
+
+    insert into trabalha (FK_PESSOA_CPF, FK_HOSPITAL_cod_hospital)
+    	values
+    		('456.654.654-00', 10),
+        ('567.765.554-00', 17),
+        ('678.876.432-00', 18),
+        ('876.678.123-00', 12),
+        ('567.765.554-00', 21),
+        ('876.678.123-00', 53),
+        ('876.678.123-00', 13),
+        ('456.654.654-00', 11),
+        ('567.765.554-00', 44); 
+  
+    INSERT INTO consulta (dt_consulta, hora, status, cod_consulta, FK_PESSOA_CPF, FK_HOSPITAL_cod_hospital, FK_DIAGNÓSTICO_cod_diag) VALUES 
+	('2018/01/12', '18:00', 'Concluída', 21,'123.321.789-00',10, 12),
+    ('2018/08/23', '12:00', 'Concluída',  8, '123.321.789-00', 17, 80),
+    ('2018/08/23', '13:00', 'Concluída',  9, '231.123.987-00',18,81),
+    ('2018/03/09', '9:00', 'Concluída',  12, '231.123.987-00',12, 21),
+    ('2018/05/13', '14:00','Concluída', 14, '145.541.789-00',21, 22),
+    ('2018/04/11', '8:00',	'Concluída', 56, '145.541.789-00',53, 65),
+    ('2018/04/11', '9:30',	'Concluída', 57, '345.543.897-00',13, 66), 
+    ('2018/04/11', '7:00', 'Concluída', 34, '345.543.897-00',11, 43),
+    ('2018/07/12', '8:00',	'Concluída', 77, '456.654.654-00',44, 47);
 
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELA E INSERÇÃO DOS DADOS
         a) Junção dos scripts anteriores em um único script 
@@ -210,6 +291,9 @@ CREATE TABLE ESTADO (
         b) Criar um novo banco de dados para testar a restauracao 
         (em caso de falha na restauração o grupo não pontuará neste quesito)
         c) formato .SQL
+![Alter text]
+(https://github.com/remedmax/trabalho01/blob/master/arquivos/create%2Binsercao.docx?raw=true "Dados")
+
 #### 8.3 INCLUSÃO DO SCRIPT PARA EXCLUSÃO DE TABELAS EXISTENTES, CRIAÇÃO DE TABELA NOVAS E INSERÇÃO DOS DADOS
         a) Junção dos scripts anteriores em um único script 
         (Drop table + Create de tabelas e estruturas de dados + dados a serem inseridos)
@@ -217,6 +301,8 @@ CREATE TABLE ESTADO (
         (em caso de falha na restauração o grupo não pontuará neste quesito)
         c) formato .SQL
 
+![Alter text]
+(https://github.com/remedmax/trabalho01/blob/master/arquivos/drop%2Bcreate.docx?raw=true "Dados2")
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
