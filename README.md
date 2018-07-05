@@ -62,9 +62,10 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         * O protótipo deve possui no mínimo duas relações N para N
         * o mínimo de entidades do modelo conceitual será igual a 5
         
-![Alter text]
-(https://github.com/remedmax/trabalho01/blob/master/imagens/md_conceitualatt2.png?raw=true "Modelo Conceitual")
-    
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/md_conceitualatt2.png?raw=true "Modelo Conceitual")
+
+
+
     B) NOTACAO UML (Caso esteja fazendo a disciplina de analise)
     C) QUALIDADE 
         Garantir que a semântica dos atributos seja clara no esquema
