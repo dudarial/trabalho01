@@ -304,14 +304,65 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 ![Alter text]
 (https://github.com/remedmax/trabalho01/blob/master/arquivos/drop%2Bcreate.docx?raw=true "Dados2")
 
+![Alter text]
+(https://github.com/remedmax/trabalho01/blob/master/imagens/8.3.png?raw=true "Drop")
+
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
+	
+select * from pessoa;
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/pessoa.png?raw=true "Pessoa")
+
+select * from consulta;
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/consulta.png?raw=true "Consulta")
+
+select * from hospital;
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/hospital.png?raw=true "Hospital")
+
+select * from diagnóstico;
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/diag.png?raw=true "Diagnostico")
+
+select * from estado;
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/estado.png?raw=true "Estado")
+
+select * from cidade;
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/cidade.png?raw=true "Cidade")
+
+select * from bairro;
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/bairro.png?raw=true "Bairro")
+
+select * from hospital2;
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/createHosp2.png?raw=true "Hospital2")
+
+
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
+
+select * from diagnÓstico where doença = 'Asma';
+select * from pessoa where sexo = 'F';
+select * from consulta where hora >= '12:00';
+select * from hospital where cod_hospital > 20;
+
+
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
-    a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
-    b) Criar no mínimo 3 consultas com operadores aritméticos 
-    c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
+    a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not:
+	select * from pessoa where tp_sanguineo = 'AB+' or sexo = 'M';
+	select * from estado where cod_estado >= 11 and cod_estado <= 27;
+	select * from consulta where cod_consulta > 12 and dt_consulta > '2018/01/12';
+	select * from diagnostico where cod_diag >= 11 and cod_diag <= 27;
+	select * from bairro where cod_bairro = 33 or cod_bairro = 45;
+
+    b) Criar no mínimo 3 consultas com operadores aritméticos:
+    	select * from pessoa where nome = 'Elisa';
+	select * from diagnostico where receita = 'Insulina';
+	select * from hospital where cod_hospital < 40;
+    
+    c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas:    	
+	select sexo,tp_sanguineo as "tipo_sanguineo" from pessoa;
+	alter table diagnÓstico rename to "diagnostico";
+	select cod_estado as "codigo_estado" from estado;
+	select dt_consulta,cod_consulta as "codigo_consulta" from consulta;
+
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
     b) Criar uma consulta para cada tipo de função data apresentada.
