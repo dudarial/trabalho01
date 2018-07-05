@@ -392,10 +392,10 @@ select * from hospital2; <br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
 
-select * from diagnÓstico where doença = 'Asma';
-select * from pessoa where sexo = 'F';
-select * from consulta where hora >= '12:00';
-select * from hospital where cod_hospital > 20;
+	select * from diagnÓstico where doença = 'Asma';
+	select * from pessoa where sexo = 'F';
+	select * from consulta where hora >= '12:00';
+	select * from hospital where cod_hospital > 20;
 
 
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
