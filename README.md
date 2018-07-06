@@ -130,7 +130,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     Cod_bairro: Campo que atribui um codigo para o bairro.
     FK_cidade: Campo que informa o codigo da cidade em que o bairro de localiza.
     
-    Diagnóstivo: Tabela que constitui as informações após a consulta.
+    Diagnóstico: Tabela que constitui as informações após a consulta.
     Cod_diag: Campo que atribui um codigo para identificar uma receita e doença.
     Receita: Campo  que informa o tratamento.
     Doença: Campo que informa o que o usuario tem.
