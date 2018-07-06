@@ -445,6 +445,19 @@ select * from hospital2; <br>
         a) Uma junção que envolva todas as tabelas possuindo no mínimo 3 registros no resultado
         b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
         
+	select cpf, nome, cod_consulta, cod_diagnostico, cod_hospital, nome_hospital, cod_bairro, nome_bairro, cod_cidade, nome_cidade, 	cod_estado, nome_estado  from estado
+	inner JOIN cidade
+	on (estado.cod_estado = cidade.fk_cod_estado)
+	inner JOIN bairro
+	on (cidade.cod_cidade = bairro.fk_cidade_cod_cidade)
+	inner join pessoa
+	on (bairro.cod_bairro = pessoa.fk_cod_bairro)
+	inner JOIN hospital
+	on (pessoa.cpf = hospital.fk_cpf)
+	inner JOIN consulta
+	on (hospital.cod_hospital = consulta.fk_cod_hospital)
+	inner JOIN diagnostico
+	on (consulta.fk_cod_diagnostico = diagnóstico.cod_diagnostico)
 
 ## Marco de Entrega 02 em: (16/06/2018)<br>
 ### ATUALIZAÇÃO DA DOCUMENTAÇÃO DOS SLIDES PARA APRESENTAÇAO SEMESTRAL (Mínimo 6 e Máximo 10)<br>
