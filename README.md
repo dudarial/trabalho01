@@ -4,7 +4,7 @@ Trabalho desenvolvido durante a disciplina de Banco de Dados do Integrado.
 # Sumário
 
 ### 1.COMPONENTES<br>
-Integrantes do grupo<br
+Integrantes do grupo<br>
 laira: lairaarruda@gmail.com<br>
 maria eduarda: dudah.jbraga@gmail.com<br>
 ...
