@@ -66,7 +66,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         * O protótipo deve possui no mínimo duas relações N para N
         * o mínimo de entidades do modelo conceitual será igual a 5
         
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/md_conceitual7.png?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/arquivos/md_conceitual7.brM3?raw=true "Modelo Conceitual")
 
 
 
