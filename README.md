@@ -155,102 +155,346 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas DDL 
         (criação de tabelas, alterações, etc..)         
-    CREATE TABLE PESSOA (
-     CPF varchar(20) PRIMARY KEY,
-     nome varchar(30),
-     email varchar(45),
-     sexo char,
-     altura int,
-     dt_nascimento date,
-     peso int,
-     n_carteirinha varchar(20),
-     n_sus varchar(20),
-     alergias varchar(30),
-     doencas_cronicas varchar(30),
-     tp_sanguineo char(3),
-     CEP varchar(20),
-     complemento varchar(20),
-     convenio varchar(20),
-     n_residencia int,
-     FK_BAIRRO_cod_bairro int
-     );
+    /* Lógico_1: */
 
-    CREATE TABLE CONSULTA (
-    dt_consulta date,
-    hora time,
-    status varchar(30),
+CREATE TABLE PESSOA (
+    email varchar(45),
+    altura int,
+    CPF varchar(45) PRIMARY KEY,
+    dt_nascimento date,
+    peso double,
+    nome varchar(30),
+    FK_TP_SANGUINEO_cod_tp_sanguineo int,
+    FK_SEXO_cod_sexo int
+);
+
+CREATE TABLE CONSULTA (
+    data date,
+    hora datetime,
     cod_consulta int PRIMARY KEY,
-    FK_PESSOA_CPF varchar(20),
+    FK_MÉDICO_FK_PESSOA_CPF varchar(45),
     FK_HOSPITAL_cod_hospital int,
-    FK_DIAGNÓSTICO_cod_diag int );
+    FK_DIAGNOSTICO_cod_diag int,
+    FK_PESSOA_CPF varchar(45),
+    hora_agenda datetime,
+    data_agenda date,
+    FK_STATUS_cod_status int
+);
 
-    CREATE TABLE HOSPITAL (
-    nome varchar(30),
-    cod_hospital int PRIMARY KEY );
+CREATE TABLE HOSPITAL (
+    nome_hospital varchar(30),
+    cod_hospital int PRIMARY KEY,
+    FK_ENDERECO_cod_endereco int
+);
 
-    CREATE TABLE DIAGNÓSTICO (
+CREATE TABLE MÉDICO (
+    FK_PESSOA_CPF varchar(45) PRIMARY KEY
+);
+
+CREATE TABLE DIAGNOSTICO (
     cod_diag int PRIMARY KEY,
-    receita varchar(30),
-    doença varchar(10) );
+    receita varchar(30)
+);
 
-    CREATE TABLE BAIRRO (
-    nome varchar(30),
+CREATE TABLE BAIRRO (
+    nome_bairro varchar(30),
     cod_bairro int PRIMARY KEY,
-    FK_CIDADE_cod_cidade int );
+    FK_CIDADE_cod_cidade int
+);
 
-    CREATE TABLE CIDADE (
-    nome varchar(30),
+CREATE TABLE CIDADE (
+    nome_cidade varchar(30),
     cod_cidade int PRIMARY KEY,
-    FK_ESTADO_cod_estado int );
+    FK_ESTADO_cod_estado int
+);
 
-    CREATE TABLE ESTADO (
-    nome varchar(30),
-    cod_estado int PRIMARY KEY);
+CREATE TABLE ESTADO (
+    nome_estado varchar(30),
+    cod_estado int PRIMARY KEY
+);
 
-    CREATE TABLE Trabalha (
-    FK_HOSPITAL_cod_hospital int,
-    FK_PESSOA_CPF varchar(20));
- 
-    ALTER TABLE PESSOA ADD CONSTRAINT FK_PESSOA_1
-     FOREIGN KEY (FK_BAIRRO_cod_bairro)
-     REFERENCES BAIRRO (cod_bairro)
-     ON DELETE CASCADE ON UPDATE CASCADE;
- 
-    ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_1
-     FOREIGN KEY (FK_PESSOA_CPF, FK_PESSOA_CPF_)
-     REFERENCES PESSOA (CPF, CPF)
-     ON DELETE CASCADE ON UPDATE CASCADE;
- 
-    ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_2
-     FOREIGN KEY (FK_HOSPITAL_cod_hospital)
-     REFERENCES HOSPITAL (cod_hospital)
-     ON DELETE CASCADE ON UPDATE CASCADE;
- 
-    ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_3
-     FOREIGN KEY (FK_DIAGNÓSTICO_cod_diag)
-     REFERENCES DIAGNÓSTICO (cod_diag)
-     ON DELETE CASCADE ON UPDATE CASCADE;
- 
-    ALTER TABLE BAIRRO ADD CONSTRAINT FK_BAIRRO_1
-     FOREIGN KEY (FK_CIDADE_cod_cidade)
-     REFERENCES CIDADE (cod_cidade)
-     ON DELETE RESTRICT ON UPDATE RESTRICT;
- 
-    ALTER TABLE CIDADE ADD CONSTRAINT FK_CIDADE_1
-     FOREIGN KEY (FK_ESTADO_cod_estado)
-     REFERENCES ESTADO (cod_estado)
-     ON DELETE RESTRICT ON UPDATE RESTRICT;
- 
-    ALTER TABLE Trabalha ADD CONSTRAINT FK_Trabalha_0
-     FOREIGN KEY (FK_HOSPITAL_cod_hospital)
-     REFERENCES HOSPITAL (cod_hospital)
-     ON DELETE SET NULL ON UPDATE CASCADE;
- 
-    ALTER TABLE Trabalha ADD CONSTRAINT FK_Trabalha_1
-     FOREIGN KEY (FK_PESSOA_CPF)
-     REFERENCES PESSOA (CPF)
-     ON DELETE SET NULL ON UPDATE CASCADE;
+CREATE TABLE DOENÇA (
+    cod_doenca int PRIMARY KEY,
+    nome_doenca string
+);
 
+CREATE TABLE ALERGIA (
+    nome_alergia varchar(20),
+    cod_alergia int PRIMARY KEY
+);
+
+CREATE TABLE DOENCA_CRONICA (
+    nome_doenca_c varchar(30),
+    cod_doenca_c int PRIMARY KEY
+);
+
+CREATE TABLE TP_SANGUINEO (
+    nome_tp_sanguineo varchar(20),
+    cod_tp_sanguineo int PRIMARY KEY
+);
+
+CREATE TABLE PLANO_SAUDE (
+    num_carteirinha int PRIMARY KEY
+);
+
+CREATE TABLE ESPECIALIDADE_MED (
+    nome_especialidade varchar(30),
+    cod_especialidade int PRIMARY KEY
+);
+
+CREATE TABLE ENDERECO (
+    CEP varchar(20),
+    num_imovel int,
+    cod_endereco int PRIMARY KEY,
+    FK_BAIRRO_cod_bairro int
+);
+
+CREATE TABLE COMPLEMENTO (
+    complemento varchar(45),
+    cod_comp int PRIMARY KEY,
+    FK_ENDERECO_cod_endereco int
+);
+
+CREATE TABLE CONTATO (
+    cod int PRIMARY KEY,
+    desc varchar(20),
+    FK_TIPO_CONTATO_cod int
+);
+
+CREATE TABLE TIPO_CONTATO (
+    cod int PRIMARY KEY,
+    desc_tipo varchar(20)
+);
+
+CREATE TABLE CONVENIO (
+    nome varchar(20),
+    FK_PLANO_SAUDE_num_carteirinha int PRIMARY KEY
+);
+
+CREATE TABLE SEXO (
+    tipo_sexo varchar(20),
+    cod_sexo int PRIMARY KEY
+);
+
+CREATE TABLE LOGRADOURO (
+    cod_logra int PRIMARY KEY,
+    tp_logra varchar(20)
+);
+
+CREATE TABLE STATUS (
+    cod_status int PRIMARY KEY,
+    tp_status varchar(20)
+);
+
+CREATE TABLE Trabalha (
+    fk_HOSPITAL_cod_hospital int,
+    fk_MÉDICO_FK_PESSOA_CPF varchar(45)
+);
+
+CREATE TABLE Diag_Doenca (
+    fk_DIAGNOSTICO_cod_diag int,
+    fk_DOENÇA_cod_doenca int
+);
+
+CREATE TABLE Pessoa_A (
+    fk_ALERGIA_cod_alergia int,
+    fk_PESSOA_CPF varchar(45)
+);
+
+CREATE TABLE Pessoa_DC (
+    fk_DOENCA_CRONICA_cod_doenca_c int,
+    fk_PESSOA_CPF varchar(45)
+);
+
+CREATE TABLE Pesoa_PS (
+    fk_PLANO_SAUDE_num_carteirinha int,
+    fk_PESSOA_CPF varchar(45)
+);
+
+CREATE TABLE Med_Esp (
+    fk_MÉDICO_FK_PESSOA_CPF varchar(45),
+    fk_ESPECIALIDADE_MED_cod_especialidade int
+);
+
+CREATE TABLE Pessoa_End (
+    fk_PESSOA_CPF varchar(45),
+    fk_ENDERECO_cod_endereco int
+);
+
+CREATE TABLE Contato_Pessoa (
+    fk_PESSOA_CPF varchar(45),
+    fk_CONTATO_cod int
+);
+
+CREATE TABLE End_Logra (
+    fk_LOGRADOURO_cod_logra int,
+    fk_ENDERECO_cod_endereco int
+);
+ 
+ALTER TABLE PESSOA ADD CONSTRAINT FK_PESSOA_2
+    FOREIGN KEY (FK_TP_SANGUINEO_cod_tp_sanguineo)
+    REFERENCES TP_SANGUINEO (cod_tp_sanguineo)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE PESSOA ADD CONSTRAINT FK_PESSOA_3
+    FOREIGN KEY (FK_SEXO_cod_sexo)
+    REFERENCES SEXO (cod_sexo)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_2
+    FOREIGN KEY (FK_MÉDICO_FK_PESSOA_CPF)
+    REFERENCES MÉDICO (FK_PESSOA_CPF)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_3
+    FOREIGN KEY (FK_HOSPITAL_cod_hospital)
+    REFERENCES HOSPITAL (cod_hospital)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_4
+    FOREIGN KEY (FK_DIAGNOSTICO_cod_diag)
+    REFERENCES DIAGNOSTICO (cod_diag)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_5
+    FOREIGN KEY (FK_PESSOA_CPF)
+    REFERENCES PESSOA (CPF)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_6
+    FOREIGN KEY (FK_STATUS_cod_status)
+    REFERENCES STATUS (cod_status)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE HOSPITAL ADD CONSTRAINT FK_HOSPITAL_2
+    FOREIGN KEY (FK_ENDERECO_cod_endereco)
+    REFERENCES ENDERECO (cod_endereco)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE MÉDICO ADD CONSTRAINT FK_MÉDICO_2
+    FOREIGN KEY (FK_PESSOA_CPF)
+    REFERENCES PESSOA (CPF)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE BAIRRO ADD CONSTRAINT FK_BAIRRO_2
+    FOREIGN KEY (FK_CIDADE_cod_cidade)
+    REFERENCES CIDADE (cod_cidade)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE CIDADE ADD CONSTRAINT FK_CIDADE_2
+    FOREIGN KEY (FK_ESTADO_cod_estado)
+    REFERENCES ESTADO (cod_estado)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE ENDERECO ADD CONSTRAINT FK_ENDERECO_2
+    FOREIGN KEY (FK_BAIRRO_cod_bairro)
+    REFERENCES BAIRRO (cod_bairro)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE COMPLEMENTO ADD CONSTRAINT FK_COMPLEMENTO_2
+    FOREIGN KEY (FK_ENDERECO_cod_endereco)
+    REFERENCES ENDERECO (cod_endereco)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE CONTATO ADD CONSTRAINT FK_CONTATO_2
+    FOREIGN KEY (FK_TIPO_CONTATO_cod)
+    REFERENCES TIPO_CONTATO (cod)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE CONVENIO ADD CONSTRAINT FK_CONVENIO_2
+    FOREIGN KEY (FK_PLANO_SAUDE_num_carteirinha)
+    REFERENCES PLANO_SAUDE (num_carteirinha)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Trabalha ADD CONSTRAINT FK_Trabalha_1
+    FOREIGN KEY (fk_HOSPITAL_cod_hospital)
+    REFERENCES HOSPITAL (cod_hospital)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Trabalha ADD CONSTRAINT FK_Trabalha_2
+    FOREIGN KEY (fk_MÉDICO_FK_PESSOA_CPF)
+    REFERENCES MÉDICO (FK_PESSOA_CPF)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Diag_Doenca ADD CONSTRAINT FK_Diag_Doenca_1
+    FOREIGN KEY (fk_DIAGNOSTICO_cod_diag)
+    REFERENCES DIAGNOSTICO (cod_diag)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Diag_Doenca ADD CONSTRAINT FK_Diag_Doenca_2
+    FOREIGN KEY (fk_DOENÇA_cod_doenca)
+    REFERENCES DOENÇA (cod_doenca)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Pessoa_A ADD CONSTRAINT FK_Pessoa_A_1
+    FOREIGN KEY (fk_ALERGIA_cod_alergia)
+    REFERENCES ALERGIA (cod_alergia)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Pessoa_A ADD CONSTRAINT FK_Pessoa_A_2
+    FOREIGN KEY (fk_PESSOA_CPF)
+    REFERENCES PESSOA (CPF)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Pessoa_DC ADD CONSTRAINT FK_Pessoa_DC_1
+    FOREIGN KEY (fk_DOENCA_CRONICA_cod_doenca_c)
+    REFERENCES DOENCA_CRONICA (cod_doenca_c)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Pessoa_DC ADD CONSTRAINT FK_Pessoa_DC_2
+    FOREIGN KEY (fk_PESSOA_CPF)
+    REFERENCES PESSOA (CPF)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Pesoa_PS ADD CONSTRAINT FK_Pesoa_PS_1
+    FOREIGN KEY (fk_PLANO_SAUDE_num_carteirinha)
+    REFERENCES PLANO_SAUDE (num_carteirinha)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Pesoa_PS ADD CONSTRAINT FK_Pesoa_PS_2
+    FOREIGN KEY (fk_PESSOA_CPF)
+    REFERENCES PESSOA (CPF)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Med_Esp ADD CONSTRAINT FK_Med_Esp_1
+    FOREIGN KEY (fk_MÉDICO_FK_PESSOA_CPF)
+    REFERENCES MÉDICO (FK_PESSOA_CPF)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Med_Esp ADD CONSTRAINT FK_Med_Esp_2
+    FOREIGN KEY (fk_ESPECIALIDADE_MED_cod_especialidade)
+    REFERENCES ESPECIALIDADE_MED (cod_especialidade)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Pessoa_End ADD CONSTRAINT FK_Pessoa_End_1
+    FOREIGN KEY (fk_PESSOA_CPF)
+    REFERENCES PESSOA (CPF)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Pessoa_End ADD CONSTRAINT FK_Pessoa_End_2
+    FOREIGN KEY (fk_ENDERECO_cod_endereco)
+    REFERENCES ENDERECO (cod_endereco)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Contato_Pessoa ADD CONSTRAINT FK_Contato_Pessoa_1
+    FOREIGN KEY (fk_PESSOA_CPF)
+    REFERENCES PESSOA (CPF)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Contato_Pessoa ADD CONSTRAINT FK_Contato_Pessoa_2
+    FOREIGN KEY (fk_CONTATO_cod)
+    REFERENCES CONTATO (cod)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE End_Logra ADD CONSTRAINT FK_End_Logra_1
+    FOREIGN KEY (fk_LOGRADOURO_cod_logra)
+    REFERENCES LOGRADOURO (cod_logra)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE End_Logra ADD CONSTRAINT FK_End_Logra_2
+    FOREIGN KEY (fk_ENDERECO_cod_endereco)
+    REFERENCES ENDERECO (cod_endereco)
+    ON DELETE SET NULL;
          
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
