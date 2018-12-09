@@ -609,30 +609,64 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
 	
-select * from pessoa; <br>
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/pessoa.png?raw=true "Pessoa")
 
-select * from consulta; <br>
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/consulta.png?raw=true "Consulta")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/pessoainsert.png?raw=true "Pessoa")
 
-select * from hospital; <br>
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/hospital.png?raw=true "Hospital")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/consultainsert1.png?raw=true "Consulta-p1")
 
-select * from diagnóstico; <br>
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/diag.png?raw=true "Diagnostico")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/consultainsert2.png?raw=true "Consulta-p2")
 
-select * from estado; <br>
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/estado.png?raw=true "Estado")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/hospitalinsert.png?raw=true "Hospital")
 
-select * from cidade; <br>
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/cidade.png?raw=true "Cidade")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/diagnoitinsert.png?raw=true "Diagnostico")
 
-select * from bairro; <br>
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/bairro.png?raw=true "Bairro")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/estadoinsert.png?raw=true "Estado")
 
-select * from hospital2; <br>
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/createHosp2.png?raw=true "Hospital2")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/cidadeinsert.png?raw=true "Cidade")
 
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/bairroinsert.png?raw=true "Bairro")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/codinsert.png?raw=true "Cod-Diag")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/complementoInsert.png?raw=true "Complemento")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/contato_pessoainsert.png?raw=true "Contato Pessoa")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/contatoinsert.png?raw=true "Contato")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/convenioinsert.png?raw=true "Convênio")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/diag_doencainsert.png?raw=true "Diag-Doença")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/doencainsert.png?raw=true "Doença")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/lograEndinsert.png?raw=true "End-Logradouro")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/enderecoinsert.png?raw=true "Endereço")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/doencainsert.png?raw=true "Med-Especialidade")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/logradouroinsert.png?raw=true "Logradouro")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/med_pessoainsert.png?raw=true "Med-Pessoa")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/medicoinsert.png?raw=true "Médico")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/doencainsert.png?raw=true "Alergia-Pessoa")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/pessoa_cronicainsert.png?raw=true "DoençaC-Pessoa")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/pessoaendinsert.png?raw=true "Endereço-Pessoa")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/plan_pessoainsert.png?raw=true "PlanoS-Pessoa")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/sexoinsert.png?raw=true "Sexo")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/status.png?raw=true "Status")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/tp_sanguineoinsert.png?raw=true "Tipo Sanguíneo")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/trabalhainsert.png?raw=true "Trabalha")
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
 
