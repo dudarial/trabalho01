@@ -626,8 +626,6 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/bairroinsert.png?raw=true "Bairro")
 
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/codinsert.png?raw=true "Cod-Diag")
-
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/complementoInsert.png?raw=true "Complemento")
 
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/contato_pessoainsert.png?raw=true "Contato Pessoa")
