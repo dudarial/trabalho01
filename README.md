@@ -46,8 +46,8 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     
 > A remedemex precisa inicialmente dos seguintes relatórios:
 * Relatório de cadastro que informe as seguintes informações sobre o paciente: nome e sobrenome, email, idade, sexo, peso e altura.
-* Relatório de consulta que informará: hora e dia da consulta, .
-* Relatório de medicação que indicará: remédios e horário específico.
+* Relatório de consulta que informará: hora e dia da consulta, código do status, código do diagnóstico, código do hospital, paciente e médico.
+* Relatório de localidade que indicará: endereço completo do paciente ou médico, incluindo número da residência, complemento, logradouro, bairro, cidade e estado.
 * Relatório com dados gerais para registrar a consulta que informará: o médico, hospital, data, diagnóstico e a receita.
 * Relatório que armazenará uma diagnóstico, localizará o local e registrará: locais com epidemias.
  
