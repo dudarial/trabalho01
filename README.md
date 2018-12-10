@@ -751,6 +751,22 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
         a) Uma junção que envolva Self Join
         b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
 #### 9.10	SUBCONSULTAS (Mínimo 3)<br>
+	select nome from pessoa 
+	where cpf in (select cpf from medico);
+
+	SELECT hospital.nome_hospital, count(consulta.fk_hospital_cod_hospital)
+	FROM hospital inner join consulta on (consulta.fk_hospital_cod_hospital = hospital.cod_hospital)
+	where consulta.fk_hospital_cod_hospital in(select distinct cod_hospital from hospital)
+	GROUP BY hospital.nome_hospital;
+
+	SELECT bairro.nome_bairro, count(hospital.fk_endereco_cod_endereco)
+	FROM bairro 
+	INNER JOIN endereco ON
+	(bairro.cod_bairro = endereco.fk_bairro_cod_bairro)
+	JOIN hospital ON
+	(endereco.cod_endereco = hospital.fk_endereco_cod_endereco)
+	WHERE endereco.cod_endereco in (select fk_endereco_cod_endereco from hospital)
+	GROUP BY bairro.nome_bairro;
 
 #### 9.11	LISTA DE CODIGOS DAS FUNÇÕES E TRIGGERS<br>
         Detalhamento sobre funcionalidade de cada código.
