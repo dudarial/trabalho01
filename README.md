@@ -745,17 +745,17 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 <br>
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
-	![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group1.PNG?raw=true "Group1")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group1.PNG?raw=true "Group1")
 	
-	![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group2.PNG?raw=true "Group2")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group2.PNG?raw=true "Group2")
 	
-	![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group3.PNG?raw=true "Group3")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group3.PNG?raw=true "Group3")
 
-	![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group4.PNG?raw=true "Group4")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group4.PNG?raw=true "Group4")
+
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group5.PNG?raw=true "Group5")
 	
-	![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group5.PNG?raw=true "Group5")
-	
-	![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group6.PNG?raw=true "Group16")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group6.PNG?raw=true "Group6")
 
 #### 9.8	CONSULTAS COM LEFT E RIGHT JOIN (Mínimo 4)<br>
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
