@@ -747,7 +747,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group1.PNG?raw=true "Group1")
 	
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group2.PNG?raw=true "Group2")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group2.png?raw=true "Group2")
 	
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group3.PNG?raw=true "Group3")
 
