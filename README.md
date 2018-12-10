@@ -88,6 +88,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     
     [Medicação]: Optamos por não especificar o campo medicação, visto que exige muitas tabelas e dados, decidimos fazê-los depois.
     [Hospital - localidade]: Decidimos incluir as relações de localidade do hospital posteriormente, pois o trabalho já possui muitas extensões.
+    decidimos não extender  a tabela doença, para que o trabalho ficasse mais objetivo.
 
 #### 5.3 DESCRIÇÃO DOS DADOS 
     [objeto]: [descrição do objeto]
