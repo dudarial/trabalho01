@@ -145,7 +145,6 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     Fk_pessoa_cpf: Campo que indicada o cpf da pessoa consultada.
     Fk_hospital: Campo que indica o hospital em que o atendimento foi feito.
     Fk_bairro: Campo que indica o bairro em que a pessoa e o hospital se localiza.
-    
 
 
 >## Marco de Entrega 01 em: (12/05/2018)<br>
@@ -760,8 +759,51 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 
 #### 9.8	CONSULTAS COM LEFT E RIGHT JOIN (Mínimo 4)<br>
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
-        a) Uma junção que envolva Self Join
+        a) Não conseguimos identificar.
         b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
+		
+		1) 					
+		create view nome_e_cpf_pessoa as	
+		select nome,cpf
+		from pessoa;
+		select * from nome_e_cpf_pessoa;
+		
+		2)
+		create view medic_pessoa as
+		select nome,cpf from pessoa
+		where cpf in (select cpf from medico);
+		select * from medico_pessoa;
+		
+		3)
+		create view quant_bairro as SELECT bairro.nome_bairro, count(hospital.fk_endereco_cod_endereco)
+		FROM bairro 
+		INNER JOIN endereco ON
+		(bairro.cod_bairro = endereco.fk_bairro_cod_bairro)
+		JOIN hospital ON
+		(endereco.cod_endereco = hospital.fk_endereco_cod_endereco)
+		WHERE endereco.cod_endereco in (select fk_endereco_cod_endereco from hospital)
+		GROUP BY bairro.nome_bairro;
+		select * from quant_bairro;
+		
+		4)
+		create view cidade_bairro as
+		select nome_cidade,cod_cidade from cidade
+		where cod_cidade in (select FK_CIDADE_cod_cidade from bairro);
+		select * from cidade_bairro;
+		
+		5)
+		create view quant_consulta as SELECT hora, count(hora) AS quantidade
+		FROM consulta
+		GROUP BY hora
+		ORDER BY count(consulta.fk_medico_fk_pessoa_cpf) DESC, hora ASC;
+		select * from quant_consulta;
+		
+		6)
+		create view plano_convenio as
+		select num_carteirinha from plano_saude
+		where num_carteirinha in (select FK_PLANO_SAUDE_num_carteirinha from convenio);
+		select * from plano_convenio;
+
 #### 9.10	SUBCONSULTAS (Mínimo 3)<br>
 	select nome from pessoa 
 	where cpf in (select cpf from medico);
