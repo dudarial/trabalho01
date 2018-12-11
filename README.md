@@ -97,54 +97,147 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
     CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
     
-    Pessoa: Tabela que constitui os dados do usuario.
-    CPF: Campo que armazena o número de Cadastro de Pessoa Física de cada usuario.
-    CEP: Campo que determina a localização da pessoa.
-    Email: Campo que informa um meio de comunicação.
-    Sexo: Campo que determina o genero da pessoa.
-    Altura: Campo que informa o tamanho da pessoa.
-    Peso: Campo que informa quanto a pessoa pesa.
-    Dt_nascimento: Campo que informa a idade da pessoa.
-    Nº_carteirinha: Campo que informa o número de carteirinha da pessoa, caso ela tiver.
-    Nº_sus: Campo que informa o número do sus, caso ela não tiver um convenio.
-    Alergias: Campo que informa se a pessoa é ou não alérgica, caso for, mostra a alergia.
-    Doenças_cronicas: Campo que informa se a pessoa contém ou não um tipo de doença cronica.
-    Tp_sanguineo: Campo que informa o tipo sanguineo do usuario.
-    Complemento: Campo que informa o tipo de lugar em que a pessoa mora, caso ela tiver.
-    Convenio: Campo que informa o nome do convenio particular, caso a pessoa tiver.
-    Nº_residencia: Campo que informa o numero do complemento.
-    FK_bairro: Campo que informa o código de localização do bairro em que a pessoa mora.
-    
-    Hospital: Tabela que constitui os dados de cada hospital.
-    Nome: Campo que indica o nome de um determinado hospital.
-    Cod_hospital: Campo que atribui um codigo para o hospital.
-    
-    Estado: Tabela que constitui as informações de cada estado.
-    Nome: Campo que indica o nome de um determinado estado.
-    Cod_estado: Campo que atribui um codigo para o estado.
-    
-    Cidade: Tabela que constitui os dados de cada cidade.
-    Nome: Campo que indica o nome de um determinado cidade.
-    Cod_cidade: Campo que atribui um codigo para o cidade.
-    FK_estado: Campo que informa o codigo do estado em que a cidade de localiza.
-    
-    Bairro: Tabela que constitui os dados de cada bairro.
-    Nome: Campo que indica o nome de um determinado bairro.
-    Cod_bairro: Campo que atribui um codigo para o bairro.
-    FK_cidade: Campo que informa o codigo da cidade em que o bairro de localiza.
-    
-    Diagnóstico: Tabela que constitui as informações após a consulta.
-    Cod_diag: Campo que atribui um codigo para identificar uma receita e doença.
-    Receita: Campo  que informa o tratamento.
-    Doença: Campo que informa o que o usuario tem.
-    
-    Consulta: Tabela que constitui todas as informações do atendimento ao usuario.
-    Dt_consulta: Campo que indica a data em que o usuario foi atendido.
-    Horas: Campo que informa o horário da consulta.
-    Status: Campo que indica se a consulta foi, ou não realizada.
-    Fk_pessoa_cpf: Campo que indicada o cpf da pessoa consultada.
-    Fk_hospital: Campo que indica o hospital em que o atendimento foi feito.
-    Fk_bairro: Campo que indica o bairro em que a pessoa e o hospital se localiza.
+   ESTADO: Tabela que constitui as informações de cada estado.
+Nome: Campo que indica o nome de um determinado estado.
+Cod_estado: Campo que atribui um codigo para o estado.
+
+CIDADE: Tabela que constitui os dados de cada cidade.
+Nome: Campo que indica o nome de um determinado cidade.
+Cod_cidade: Campo que atribui um codigo para o cidade.
+FK_estado: Campo que informa o codigo do estado em que a cidade de localiza.
+
+BAIRRO: Tabela que constitui os dados de cada bairro.
+Nome: Campo que indica o nome de um determinado bairro.
+Cod_bairro: Campo que atribui um codigo para o bairro.
+FK_cidade: Campo que informa o codigo da cidade em que o bairro de localiza.
+ENDERECO: tabela que constitui os dados do endereço do usuário.
+cep: Campo que constitui o cep da pessoa.
+num_imovel: Campo que constitui o número do imóvel do sujeito.
+cod_endereco: Campo que constitui o código da entidade.
+fk_bairro_cod_bairro: Campo que indica o código do bairro daquele endereço.
+
+LOGRADOURO: Tabela em que estão inseridos os dados a respeito do logradouro de um endereço
+cod_logra: Campo que indica o código da entidade.
+tp_logra: Campo que constitui a descrição do logradouro.
+
+ENDEREÇO_LOGRADOURO: Tabela que relaciona as entidades endereço e logradouro.
+fk_logradouro_cod_logra: Campo que representa o código do logradouro.
+fk_endereço_cod_endereco: Campo que representa o código do endereço.
+
+COMPLEMENTO: Tabela que possui dados sobre o complemento do endereço de uma pessoa.
+complemento: Campo que constitui a descrição do complemento.
+cod_comp: Campo que constitui o código do complemento.
+fk_endereco_cod_endereco: Campo que constitui o código do endereço, utilizado para relacionaro o complemento.
+
+SEXO: Tabela em que estão inclusos os gêneros pessoais.
+tipo_sexo: Campo que constitui a descrição do gênero.
+cod_sexo: Campo que constitui o código do gênero.
+
+TIPO_CONTATO: Tabela que abrange os meios de contato exisentes.
+cod: Campo que constitui o código do tipo de contato.
+desc_tipo: Campo que constitui o nome do meio de comunicação em questão.
+
+CONTATO: Tabela que constitui dados a respeito dos contatos pessoas de cada usuário.
+cod: Campo que constitui o código do contato de uma pessoa.
+descricao: Campo que constitui o contato da pessoa.
+
+PLANO SAUDE: Tabela em que estão inclusos os dados a respeito do plano de saúde de uma pessoa.
+num_carteirinha: número da carteirinha do usuário, todos possuem.
+
+CONVENIO: Tabela em que estão inclusos os dados sobre o convênio de uma pessoa.
+nome: Campo que constitui o nome do convênio.
+fk_plano_saude_num_carteirinha: Campo que possui o número da carteirinha da pessoa que possui aquele convênio.
+
+TP_SANGUINEO: Entidade que possui todos os tipos sanguíneos presentes no sistema.
+nome_tp_sanguineo: Campo que possui o nome do tipo sanguíneo.
+cod_tp_sanguineo: código do tipo sanguíneo.
+
+DOENCA_CRONICA: Entidade que possui a relação, caso exista, de doenças crônicas.
+dome_doenca_c: descrição da doença.
+cod_doenca_c; código da doença em questão.
+
+ALERGIA: Entidade que possui a relação, caso exista, de alergias existentes.
+nome_alergia: Campo que constitui a descrição da alergia.
+cod_alergia: Campo que possui o código da alergia em questão.
+
+PESSOA_ENDERECO: Tabela que relaciona uma pessoa a seu endereço.
+fk_pessoa_cpf: campo que contem o cpf da pessoa.
+fk_endereco_cod_endereco: contem o código do endereço daquela pessoa.
+
+CONTATO_PESSOA: tabela que relaciona cada pessoa com seu respectivo contato.
+fk_pessoa_cpf: campo que representa a pessoa por meio de seu cpf.
+fk_contato_cod: Campo que representa o contato da pessoa por meio de um código.
+
+PESSOA_A: tabela que relaciona cada pessoa com sua respectiva alergia, se possuir.
+fk_alergia_cod_alergia: campo que representa a alergia da pessoa por um código.
+fk_pessoa_cpf: Campo que representa a pessoa por meio de seu cpf.
+
+PESSOA_PS: Tabela que representa a relação entre a pessoa e seu plano de saúde.
+fk_plano_saude_num_carteirinha: Campo que contém o número da carteirinha da pessoa.
+fk_pessoa_cpf: Campo que representa a pessoa por meio de seu cpf.
+
+PESSOA_DC: Tabela que representa a relação entre cada pessoa e sua doença crônica, se ela possuir.
+fk_doenca_cronica_cod_doenca_c: campo que possui o código da doença crônica da pessoa.
+fk_pessoa_cpf: Campo que atribui o cpf da pessoa.
+
+PESSOA: tabela que representa o usuário e suas informações pessoais.
+email: Campo em que está contido o email do usuário.
+altura: campo que possui a altura da pessoa.
+cpf: campo que representa a pessoa, por ser único.
+dt_nascimento: campo que possui  data de nascimento do usuário.
+peso: Atributo que constitui o peso da pessoa.
+nome: Campo que possui o nome da pessoa.
+fk_tp_sanguineo: campo que possui o código para representar o tipo sanguíneo da pessoa.
+fk_sexo_cod_sexo: Campo que possui o código para representar o gênero sexual da pessoa.
+
+MEDICO: Tabela que constitui o cpf da pessoa que é médica.
+fk_pessoa_cpf: Campo que representa que aquela pessoa é um médico.
+
+ESPECIALIDADE: tabela que possui a relação de especialidades médicas existentes no sistema.
+nome_especialidade: Campo que possui a descrição da especialidade
+cod_especialidade: Campo que apresenta o código da especialidade referenciada.
+
+MED_ESP: Tabela que representa a  relação entre o médico e sua especialidade.
+fk_medico_fk_pessoa_cpf: campo que representa o cpf do médico.
+fk_especialidade_med_cod_especialidade: Campo que possui o código da especialidade daquele médico.
+
+DOENCA: entidade que apresenta as doenças existentes no sistema.
+cod_doenca: Campo que contém o código da doença.
+nome_doença: Atributo que possui a descrição da doença em questão.
+
+DIAGNOSTICO: Entidade que representa o diagnóstico dado pelo médico a um paciente em uma consulta.
+cod_diag: Campo que possui o código do diagnóstico.
+receita: Prescrição médica a respeito da consulta.
+
+DIAG_DOENCA: Tabela que representa o relacionamento entre o diagnóstico e a doença.
+fk_diagnostico_cod_diag: campo que possui o código do diagnóstico de uma consulta.
+fk_doenca_cod_diag: campo que possui o código da doença que foi constatada no dagnóstico.
+
+STATUS: Tabela que possui o status de consulta, se ela já aconteceu ou não.
+cod_status: Campo que apresenta o código do status da consulta.
+tp_status: descrição do status.
+
+HOSPITAL: Entidade que representa o hospital.
+nome_hospital: Campo que possui a descrição do nome do hospital.
+cod_hospital: Campo que apresenta o código deste hospital.
+fk_endereco_cod_endereco: Campo que possui o código do endereço daquele hospital.
+
+TRABALHA: Entidade que representa a relação de médico e hospital, onde o médico trabalha.
+fk_hospital_cod_hospital: Campo que possui o código do hospital onde o médico trabalha.
+fk_medico_fk_pessoa_cpf: Campo que vai dizer quem é o médico em questão, de acordo com seu cpf.
+
+CONSULTA: Tabela que possui informações a respeito da consulta de uma pessoa feita por um médico.
+dt_consulta: campo que apresenta a data em que a consulta aconteceu.
+hora: Campo que apresenta a hora em que a consulta ocorreu.
+cod_consulta: campo que possui o código daquela consulta.
+fk_medico_fk_pessoa_cpf: campo que representa o médico que realizou a consulta.
+fk_hospital_cod_hospital: campo que possui o código do hospital em que acontece a consulta.
+fk_pessoa_cpf: Atributo que representa a pessoa, por meio de seu cpf, que foi atendida na consulta.
+hora_agenda: Atributo que possui a hora em que a consulta foi agendada.
+data_agenda: Atributo que possui a data em que a consulta foi agendada.
+fk_status_cod_status: Atributo que possui o status de confirmação da consulta.
+
+
 
 
 >## Marco de Entrega 01 em: (12/05/2018)<br>
