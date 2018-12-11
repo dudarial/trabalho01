@@ -1369,6 +1369,25 @@ fk_status_cod_status: Atributo que possui o status de confirmação da consulta.
 ![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/group6.PNG?raw=true "Group6")
 
 #### 9.8	CONSULTAS COM LEFT E RIGHT JOIN (Mínimo 4)<br>
+	
+	1)
+	select nome_hospital, dt_ consulta 
+	from hospital left Join consulta on 
+	hospital.cod_hospital = consulta.cod_hospital;
+	
+	2)
+	select email, nome_hospital from pessoa 
+	right Join medico on pessoa.cpf = médico.cpf 
+	Join trabalha on medico.cpf = trabalha.cpf 
+	Join hospital on trabalha.cod_hospital = hospital.cod_hospital;
+	
+	3)
+	select hora, cod_hospital from consulta right 
+	Join hospital on consulta.cod_hospital = hospital.cod_hospital;
+	
+	4)
+	select altura, CPF from pessoa right Join medico on pessoa.cpf = medico.cpf;
+	
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
         a) Não conseguimos identificar.
         b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
