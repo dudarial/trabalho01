@@ -150,7 +150,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 >## Marco de Entrega 01 em: (12/05/2018)<br>
 ### 6	MODELO LÓGICO<br>
         a) inclusão do modelo lógico do banco de dados:
-![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/L%C3%B3gico_1.png?raw=true "Modelo Lógico")
+![Alt text](https://github.com/remedmax/trabalho01/blob/master/imagens/L%C3%B3gico_Remded.png?raw=true "Modelo Lógico")
    
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
