@@ -503,88 +503,607 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 #### 8.1 DETALHAMENTO DAS INFORMAÇÕES
         a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físic
         b) formato .SQL
-        
-        insert into HOSPITAL (nome, cod_hospital)
+
+	CREATE TABLE ESTADO (
+	    nome_estado varchar(30),
+	    cod_estado int PRIMARY KEY
+	);
+	INSERT INTO estado (nome_estado, cod_estado) VALUES 
+		('Espírito Santo', 27),
+		('São Paulo', 11),
+		('Bahia', 71),
+		('Rio de Janeiro', 21),
+		('Minas Gerais', 33),
+		('Paraná', 41),
+		('Goiás', 62),
+		('Amazonas', 92),
+		('Santa Catarina', 47);
+
+	CREATE TABLE CIDADE (
+	    nome_cidade varchar(30),
+	    cod_cidade int PRIMARY KEY,
+	    FK_ESTADO_cod_estado int
+	);
+	
+	ALTER TABLE CIDADE ADD CONSTRAINT FK_CIDADE_2
+	    FOREIGN KEY (FK_ESTADO_cod_estado)
+	    REFERENCES ESTADO (cod_estado)
+	    ON DELETE RESTRICT;
+	    
+	INSERT INTO cidade (nome_cidade, cod_cidade, FK_ESTADO_cod_estado) VALUES 
+		('Serra', 34, 27),
+		('Vitória', 33, 27),
+		('Pedra azul', 28, 27),
+		('Cariacica', 44, 27),
+		('Vila Velha', 53, 27),
+		('Venda Nova', 35, 27),
+		('Aracruz', 36, 27),
+		('Afonso Cláudio', 12, 27),
+		('Marechal Floriano', 66, 27);
+
+
+
+	CREATE TABLE BAIRRO (
+	    nome_bairro varchar(30),
+	    cod_bairro int PRIMARY KEY,
+	    FK_CIDADE_cod_cidade int
+	);
+	
+	ALTER TABLE BAIRRO ADD CONSTRAINT FK_BAIRRO_2
+	    FOREIGN KEY (FK_CIDADE_cod_cidade)
+	    REFERENCES CIDADE (cod_cidade)
+	    ON DELETE RESTRICT;
+	    
+	INSERT INTO bairro (nome_bairro, cod_bairro, FK_CIDADE_cod_cidade) VALUES
+	('Laranjeiras', 10, 34),
+	('Santa Rosa', 1, 33),
+	('Itararé', 2, 33),	
+	('Jacaraipe', 3, 34),
+	('Itapuã', 4, 53 ),
+	('jardim da Penha', 5, 33),
+	('Vila Rubim', 6, 33),
+	('Jacaraipe', 7, 34),
+	('Itaparica', 8, 53);
+
+	CREATE TABLE ENDERECO (
+	    CEP varchar(20),
+	    num_imovel int,
+	    cod_endereco int PRIMARY KEY,
+	    FK_BAIRRO_cod_bairro int
+	);
+
+	ALTER TABLE ENDERECO ADD CONSTRAINT FK_ENDERECO_2
+	    FOREIGN KEY (FK_BAIRRO_cod_bairro)
+	    REFERENCES BAIRRO (cod_bairro)
+	    ON DELETE RESTRICT;
+	    
+	insert into endereco(CEP, cod_endereco, num_imovel, FK_BAIRRO_cod_bairro  ) values
+	('12345-123',11,9,1),
+	('23456-123',22,8,1),
+	('34567-321',33,7,2),
+	('45678-231',44,6,3),
+	('56789-132',55,5,4),
+	('67890-123',66,4,5),
+	('78901-321',77,3,6),
+	('89012-213',88,2,7),
+	('99012-223',99,1,8);
+
+	CREATE TABLE LOGRADOURO (
+	    cod_logra int PRIMARY KEY,
+	    tp_logra varchar(20)
+	);
+	
+	insert into LOGRADOURO (cod_logra, tp_logra) values
+	(1, 'bairro'),
+	(2, 'estrada'),
+	(3, 'avenida'),
+	(4, 'rua'),
+	(5, 'rodovia'),
+	(6, 'trevo'),
+	(7, 'vila'),
+	(8, 'residencial'),
+	(9, 'fazenda'),
+	(10, 'distrito'),
+	(11, 'viaduto');
+
+	CREATE TABLE End_Logra (
+	    fk_LOGRADOURO_cod_logra int,
+	    fk_ENDERECO_cod_endereco int
+	);
+	ALTER TABLE End_Logra ADD CONSTRAINT FK_End_Logra_1
+	    FOREIGN KEY (fk_LOGRADOURO_cod_logra)
+	    REFERENCES LOGRADOURO (cod_logra)
+	    ON DELETE SET NULL;
+
+	ALTER TABLE End_Logra ADD CONSTRAINT FK_End_Logra_2
+	    FOREIGN KEY (fk_ENDERECO_cod_endereco)
+	    REFERENCES ENDERECO (cod_endereco)
+	    ON DELETE SET NULL;
+	    
+	insert into End_Logra(fk_LOGRADOURO_cod_logra , fk_ENDERECO_cod_endereco )values
+	(9, 11), 
+	(8, 22), 
+	(7, 33), 
+	(6, 44), 
+	(11, 55), 
+	(5, 66), 
+	(1, 77);
+
+	CREATE TABLE COMPLEMENTO (
+	    complemento varchar(45),
+	    cod_comp int PRIMARY KEY,
+	    FK_ENDERECO_cod_endereco int
+	);
+	
+	ALTER TABLE COMPLEMENTO ADD CONSTRAINT FK_COMPLEMENTO_2
+	    FOREIGN KEY (FK_ENDERECO_cod_endereco)
+	    REFERENCES ENDERECO (cod_endereco)
+	    ON DELETE CASCADE;
+	    
+	insert into COMPLEMENTO (complemento, cod_comp, fk_ENDERECO_cod_endereco) values
+	('D-1203',1,77), 
+	('F-405',2,66), 
+	('A-123',3,55), 
+	('N-309',4,44), 
+	('C-403',5,33), 
+	('E-208',6,22), 
+	('D-1004',7,11);
+	
+	CREATE TABLE SEXO (
+	    tipo_sexo varchar(20),
+	    cod_sexo int PRIMARY KEY
+	);
+	
+	insert into SEXO(tipo_sexo, cod_sexo)values
+	('feminino', 1), 
+	( 'Masculino', 2), 
+	( 'outro', 3);
+
+	CREATE TABLE TIPO_CONTATO (
+	    cod int PRIMARY KEY,
+	    desc_tipo varchar(20)
+	);
+	
+	insert into TIPO_CONTATO(cod, desc_tipo) values
+	(1, 'celular'),
+	(2, 'fixo'),
+	(3, 'twitter'),
+	(4, 'facebook'),
+	(5, 'comercial'),
+	(6, 'msn'),
+	(7, 'orkut');
+	
+	CREATE TABLE CONTATO (
+	    cod int PRIMARY KEY,
+	    descricao varchar(20),
+	    FK_TIPO_CONTATO_cod int
+	);
+	
+	ALTER TABLE CONTATO ADD CONSTRAINT FK_CONTATO_2
+	    FOREIGN KEY (FK_TIPO_CONTATO_cod)
+	    REFERENCES TIPO_CONTATO (cod)
+	    ON DELETE RESTRICT;
+	    
+	insert into CONTATO(FK_TIPO_CONTATO_cod, descricao, cod) values 
+	(1, '9998869593', 7),
+	(2, '32816891', 6),
+	(3, '@mkr123', 5),
+	(4, '@RicardoRamos', 4),
+	(6, '@elisalindinha', 3),
+	(7, '@bonitaodobairro', 2);
+	
+	CREATE TABLE PLANO_SAUDE (
+	    num_carteirinha int PRIMARY KEY
+	);
+	insert into plano_saude(num_carteirinha )values 
+	(123456), 
+	(234567), 
+	(3456789), 
+	(4567890), 
+	(5678901);
+
+	CREATE TABLE CONVENIO (
+	    nome varchar(20),
+	    FK_PLANO_SAUDE_num_carteirinha int PRIMARY KEY
+	);
+
+	ALTER TABLE CONVENIO ADD CONSTRAINT FK_CONVENIO_2
+	    FOREIGN KEY (FK_PLANO_SAUDE_num_carteirinha)
+	    REFERENCES PLANO_SAUDE (num_carteirinha)
+	    ON DELETE CASCADE;
+	    
+	insert into convenio(nome , FK_PLANO_SAUDE_num_carteirinha  ) values 
+	('São Bernardo', 123456), 
+	('Samp', 234567 ), 
+	('Unimed', 3456789), 
+	('Med senior', 4567890), 
+	('SUS', 5678901);
+
+	CREATE TABLE TP_SANGUINEO (
+	    nome_tp_sanguineo varchar(20),
+	    cod_tp_sanguineo int PRIMARY KEY
+	);
+	
+	insert into tp_sanguineo(nome_tp_sanguineo , cod_tp_sanguineo ) values
+	('AB+', 1), 
+	( 'AB-', 2), 
+	( 'O+', 3),
+	 ( 'O-', 4), 
+	( 'A+', 5), 
+	( 'A-', 6);
+	
+	CREATE TABLE DOENCA_CRONICA (
+	    nome_doenca_c varchar(30),
+	    cod_doenca_c int PRIMARY KEY
+	);
+
+	insert into DOENCA_CRONICA (nome_doenca_c, cod_doenca_c) values
+	('Hipertensão arterial', 1),
+	('Diabetes', 2),
+	('Aids', 3),
+	('Câncer', 4),
+	('Asma', 5),
+	('Colesterol alto', 6);
+
+	CREATE TABLE ALERGIA (
+	    nome_alergia varchar(20),
+	    cod_alergia int PRIMARY KEY
+	);
+	
+	insert into ALERGIA (nome_alergia, cod_alergia) values
+	('poeira', 1),
+	('pelo de gato', 2),
+	('frutos do mar', 3),
+	('lactose', 4),
+	('nenhuma', 5);
+	
+	CREATE TABLE Pessoa_End (
+	    fk_PESSOA_CPF varchar(45),
+	    fk_ENDERECO_cod_endereco int
+	);
+	
+	ALTER TABLE Pessoa_End ADD CONSTRAINT FK_Pessoa_End_1
+	    FOREIGN KEY (fk_PESSOA_CPF)
+	    REFERENCES PESSOA (CPF)
+	    ON DELETE RESTRICT;
+
+	ALTER TABLE Pessoa_End ADD CONSTRAINT FK_Pessoa_End_2
+	    FOREIGN KEY (fk_ENDERECO_cod_endereco)
+	    REFERENCES ENDERECO (cod_endereco)
+	    ON DELETE RESTRICT;
+	    
+	insert into Pessoa_End(fk_PESSOA_CPF , fk_ENDERECO_cod_endereco ) values ('123.321.789-00', 11), 
+	('231.321.987-00', 22), 
+	('145.541.789-00', 33), 
+	('345.543.897-00', 44), 
+	('456.654.654-00', 55), 
+	('567.765.554-00', 66);
+	
+	CREATE TABLE Contato_Pessoa (
+	    fk_PESSOA_CPF varchar(45),
+	    fk_CONTATO_cod int
+	);
+	
+	ALTER TABLE Contato_Pessoa ADD CONSTRAINT FK_Contato_Pessoa_1
+	    FOREIGN KEY (fk_PESSOA_CPF)
+	    REFERENCES PESSOA (CPF)
+	    ON DELETE RESTRICT;
+
+	ALTER TABLE Contato_Pessoa ADD CONSTRAINT FK_Contato_Pessoa_2
+	    FOREIGN KEY (fk_CONTATO_cod)
+	    REFERENCES CONTATO (cod)
+	    ON DELETE SET NULL;
+	    
+	insert into Contato_Pessoa (fk_PESSOA_CPF, fk_CONTATO_cod) values
+	('123.321.789-00', 7),
+	('231.321.987-00', 6),
+	('567.765.554-00', 5),
+	('123.321.789-00', 4),
+	('678.876.432-00', 3),
+	('456.654.654-00', 2);
+
+	CREATE TABLE Pessoa_A (
+	    fk_ALERGIA_cod_alergia int,
+	    fk_PESSOA_CPF varchar(45)
+	);
+
+	ALTER TABLE Pessoa_A ADD CONSTRAINT FK_Pessoa_A_1
+	    FOREIGN KEY (fk_ALERGIA_cod_alergia)
+	    REFERENCES ALERGIA (cod_alergia)
+	    ON DELETE SET NULL;
+
+	ALTER TABLE Pessoa_A ADD CONSTRAINT FK_Pessoa_A_2
+	    FOREIGN KEY (fk_PESSOA_CPF)
+	    REFERENCES PESSOA (CPF)
+	    ON DELETE SET NULL;
+	    
+	insert into PESSOA_A (fk_ALERGIA_cod_alergia, fk_PESSOA_CPF) values
+	(1, '123.321.789-00'),
+	(2, '231.321.987-00'),
+	(3, '567.765.554-00'),
+	(4, '123.321.789-00'),
+	(5, '456.654.654-00');
+
+
+	CREATE TABLE Pessoa_PS (
+	    fk_PLANO_SAUDE_num_carteirinha int,
+	    fk_PESSOA_CPF varchar(45)
+	);
+	
+	ALTER TABLE Pessoa_PS ADD CONSTRAINT FK_Pesoa_PS_1
+	    FOREIGN KEY (fk_PLANO_SAUDE_num_carteirinha)
+	    REFERENCES PLANO_SAUDE (num_carteirinha)
+	    ON DELETE RESTRICT;
+
+	ALTER TABLE Pessoa_PS ADD CONSTRAINT FK_Pesoa_PS_2
+	    FOREIGN KEY (fk_PESSOA_CPF)
+	    REFERENCES PESSOA (CPF)
+	    ON DELETE SET NULL;
+	    
+	insert into Pessoa_PS (fk_PLANO_SAUDE_num_carteirinha, fk_PESSOA_CPF) values
+	(123456, '123.321.789-00'),
+	(234567,'231.321.987-00'),
+	(3456789,'567.765.554-00'),
+	(4567890,'123.321.789-00'),
+	(5678901,'456.654.654-00');
+	
+	CREATE TABLE Pessoa_DC (
+	    fk_DOENCA_CRONICA_cod_doenca_c int,
+	    fk_PESSOA_CPF varchar(45));
+
+	ALTER TABLE Pessoa_DC ADD CONSTRAINT FK_Pessoa_DC_1
+	    FOREIGN KEY (fk_DOENCA_CRONICA_cod_doenca_c)
+	    REFERENCES DOENCA_CRONICA (cod_doenca_c)
+	    ON DELETE SET NULL;
+
+	ALTER TABLE Pessoa_DC ADD CONSTRAINT FK_Pessoa_DC_2
+	    FOREIGN KEY (fk_PESSOA_CPF)
+	    REFERENCES PESSOA (CPF)
+	    ON DELETE SET NULL;
+
+	insert into Pessoa_DC (fk_DOENCA_CRONICA_cod_doenca_c, fk_PESSOA_cpf) values
+	(1, '123.321.789-00'),
+	(2, '231.321.987-00'),
+	(3, '145.541.789-00'),
+	(4, '345.543.897-00'),
+	(5, '456.654.654-00'),
+	(6, '876.678.123-00');
+	
+	CREATE TABLE PESSOA (
+	    email varchar(45),
+	    altura int,
+	    CPF varchar(45) PRIMARY KEY,
+	    dt_nascimento date,
+	    peso int,
+	    nome varchar(30),
+	    FK_TP_SANGUINEO_cod_tp_sanguineo int,
+	    FK_SEXO_cod_sexo int
+	);
+	
+	ALTER TABLE PESSOA ADD CONSTRAINT FK_PESSOA_2
+	    FOREIGN KEY (FK_TP_SANGUINEO_cod_tp_sanguineo)
+	    REFERENCES TP_SANGUINEO (cod_tp_sanguineo)
+	    ON DELETE CASCADE;
+
+	ALTER TABLE PESSOA ADD CONSTRAINT FK_PESSOA_3
+	    FOREIGN KEY (FK_SEXO_cod_sexo)
+	    REFERENCES SEXO (cod_sexo)
+	    ON DELETE CASCADE;
+
+	insert into PESSOA (nome, FK_SEXO_cod_sexo, peso, altura, email, FK_TP_SANGUINEO_cod_tp_sanguineo, dt_nascimento, cpf)
+	values
+	('Ricardo', 2, 76, 180, 'ricardo@gmail.com', 1, '2001/03/10', '123.321.789-00'), 
+	('Maria', 1, 45, 160, 'maria@gmail.com',2, '2002/03/03', '231.321.987-00'),
+	('Lucas', 2, 80, 190, 'lucas@gmail.com',3, '1999/12/10', '145.541.789-00'), 
+	('Bernardo', 3, 58, 177, 'bernardo@gmail.com',4, '1998/09/12', '345.543.897-00'), 
+	('Leonardo', 3, 78, 198, 'leonardo@gmail.com', 5, '1999/01/04', '456.654.654-00'), 
+	('Patricia', 1, 34, 155, 'patricia@gmail.com',4, '1997/09/08', '567.765.554-00'), 
+	('Elisa', 1, 50, 189, 'elisa@gmail.com',5, '2001/11/16', '678.876.432-00'), 
+	('Carmem', 1, 64, 179, 'carmem@gmail.com', 6, '1998/08/27', '789.876.321-00'), 
+	('Gustavo', 2, 55, 198, 'gustavo@gmail.com', 5, '2001/07/12', '876.678.123-00');
+	
+	CREATE TABLE MEDICO (
+	    FK_PESSOA_CPF varchar(45) PRIMARY KEY
+	);
+	
+	ALTER TABLE MEDICO ADD CONSTRAINT FK_MÉDICO_2
+	    FOREIGN KEY (FK_PESSOA_CPF)
+	    REFERENCES PESSOA (CPF)
+	    ON DELETE CASCADE;
+
+	insert into medico (FK_PESSOA_CPF) values
+		('345.543.897-00'),
+		('123.321.789-00'),
+		('231.321.987-00'),
+		('145.541.789-00'),
+	('567.765.554-00');
+	
+	CREATE TABLE ESPECIALIDADE_MED (
+	    nome_especialidade varchar(30),
+	    cod_especialidade int PRIMARY KEY);
+
+	INSERT INTO especialidade_med (nome_especialidade, cod_especialidade) VALUES
+	('Cardiologista', 1),
+	('Infectologista',2),
+	('Endocrinologista',3),
+	('Cardiologista',4),
+	('Clínico Geral',6);
+	MÉDICO_ESPECIALIDADE
+	CREATE TABLE Med_Esp (
+	    fk_MÉDICO_FK_PESSOA_CPF varchar(45),
+	    fk_ESPECIALIDADE_MED_cod_especialidade int
+	);
+
+	ALTER TABLE Med_Esp ADD CONSTRAINT FK_Med_Esp_1
+	    FOREIGN KEY (fk_MÉDICO_FK_PESSOA_CPF)
+	    REFERENCES MEDICO (FK_PESSOA_CPF)
+	    ON DELETE RESTRICT;
+
+	ALTER TABLE Med_Esp ADD CONSTRAINT FK_Med_Esp_2
+	    FOREIGN KEY (fk_ESPECIALIDADE_MED_cod_especialidade)
+	    REFERENCES ESPECIALIDADE_MED (cod_especialidade)
+	    ON DELETE SET NULL;
+	    
+	insert into Med_esp (fk_ESPECIALIDADE_MED_cod_especialidade, fk_MÉDICO_FK_PESSOA_CPF ) values
+	(1, '345.543.897-00'),
+	(2, '123.321.789-00'),
+	(3, '231.321.987-00'),
+	(4, '145.541.789-00'),
+	(6, '567.765.554-00');
+	
+	CREATE TABLE DOENCA (
+	    cod_doenca int PRIMARY KEY,
+	    nome_doenca varchar(40)
+	);
+
+	insert into DOENCA (cod_doenca, nome_doenca) 
+	values
+	    (13, 'Colesterol'),
+	    (81, 'Dengue'),
+	    (82, 'Diabete'),
+	    (23, 'Anemina'),
+	    (24, 'Enxaqueca'),
+	    (66, 'Resfriado'),
+	    (67, 'Caxumba'),
+	    (44, 'Asma'),
+	    (22, 'hepatite'),
+	 (48, 'bronquite');
+
+	CREATE TABLE DIAGNOSTICO (
+	    cod_diag int PRIMARY KEY,
+	    receita varchar(30)
+	);
+	
+	insert into DIAGNOSTICO (cod_diag, receita) 
+	values
+	    (12, 'Dieta livre de gordura'),
+	    (80, 'Analgésicos'),
+	    (81, 'Insulina'),
+	    (21, 'Vitamina'),
+	    (22, 'Relaxamento'),
+	    (65, 'Antinflamatório'),
+	    (66, 'Anti-histaminico'),
+	    (43, 'Corticoide'),
+	    (47, 'Broncodilatador');
+	
+	CREATE TABLE Diag_Doenca (
+	    fk_DIAGNOSTICO_cod_diag int,
+	    fk_DOENÇA_cod_doenca int
+	);
+	
+	ALTER TABLE Diag_Doenca ADD CONSTRAINT FK_Diag_Doenca_1
+	    FOREIGN KEY (fk_DIAGNOSTICO_cod_diag)
+	    REFERENCES DIAGNOSTICO (cod_diag)
+	    ON DELETE RESTRICT;
+
+	ALTER TABLE Diag_Doenca ADD CONSTRAINT FK_Diag_Doenca_2
+	    FOREIGN KEY (fk_DOENÇA_cod_doenca)
+	    REFERENCES DOENCA (cod_doenca)
+	    ON DELETE SET NULL;
+	    
+	insert into diag_doenca(fk_DIAGNOSTICO_cod_diag , fk_DOENÇA_cod_doenca )values 
+	(12, 13), (80, 81), (81, 82), (21, 23), (22, 22), (65, 66), (66, 67), (43, 44), (47, 48);
+
+	CREATE TABLE STATUS (
+	    cod_status int PRIMARY KEY,
+	    tp_status varchar(20)
+	);
+	
+	insert into status (cod_status , tp_status )values(1, 'Concluída'), (2, 'não concluída');
+	
+	CREATE TABLE HOSPITAL (
+	    nome_hospital varchar(30),
+	    cod_hospital int PRIMARY KEY,
+	    FK_ENDERECO_cod_endereco int
+	);
+
+	ALTER TABLE HOSPITAL ADD CONSTRAINT FK_HOSPITAL_2
+	    FOREIGN KEY (FK_ENDERECO_cod_endereco)
+	    REFERENCES ENDERECO (cod_endereco)
+	    ON DELETE CASCADE;
+	    
+	insert into HOSPITAL (nome_hospital, cod_hospital, FK_ENDERECO_cod_endereco )
 	    values
-       	('Jayme', 10),
-        ('Metropolitano', 17),
-        ('Unimed Vitória', 18),
-        ('Posto de Saúde', 12),
-        ('Apart', 21),
-        ('Santa Casa', 53),
-        ('Santa Monica', 13),
-        ('Vitoria Apart', 11),
-        ('São camilo', 44);
-        
-        insert into PESSOA (nome, sexo, peso, altura, email, alergias, doencas_cronicas, tp_sanguineo, dt_nascimento, cpf, cep, n_carteirinha, n_sus, convenio, n_residencia, complemento, FK_BAIRRO_cod_bairro, )
-	values
-    ('Ricardo', 'M', 76, 180, 'ricardo@gmail.com', 'Pêlo de gato', 'Colesterol alto', 'AB+', '2001/03/10', '123.321.789-00', '21-189.122', '123.321.789', '123.321.700', 'Samp', 39, 'Casa', 55), 
-    ('Maria', 'F', 45, 160, 'maria@gmail.com', 'Picada de mosquito', 'Nenhuma', 'AB-', '2002/03/03', '231.123.987-00', '20-190.091', '144.556.700', '144.556.789', 'São Bernardo', 880, 'Apartamento', 23),
-    ('Lucas', 'M', 80, 190, 'lucas@gmail.com', 'Dermatite de contato', 'Nenhuma', 'AB-', '1999/12/10', '145.541.789-00', '19-123.098', '145.541.789', '876.678.123', 'Unimed', 34, 'Casa', 22), 
- 	('Bernardo', 'M', 58, 177, 'bernardo@gmail.com', 'Nenhuma', 'Hipertensão', 'O-', '1998/09/12', '345.543.897-00', '18-234.097', '345.543.897', '789.876.321', 'Sus', 21, 'Casa alugada', 33), 
-	('Leonardo', 'M', 78, 198, 'leonardo@gmail.com', 'Nenhuma', 'Diabete', 'AB+', '1999/01/04', '456.654.654-00', '17-345.096', '456.654.654', '123.321.789', 'Samp', 90, 'Apartamento', 45), 
-	('Patricia', 'M', 34, 155, 'patricia@gmail.com', 'À poeira', 'Asma', 'AB+', '1997/09/08', '567.765.554-00', '16-456.095', '567.765.554', '144.556.700', 'Samp', 800, 'Apartamento', 21), 
-	('Elisa', 'F', 50, 189, 'elisa@gmail.com', 'Rinite alérgica', 'Asma', 'AB-', '2001/11/16', '678.876.432-00', '15-567094', '678.876.432', '145.541.789', 'Samp', 765, 'Apartamento', 12), 
-	('Carmem', 'F', 64, 179, 'carmem@gmail.com', 'Dermatite atópica', 'Nenhuma', 'O-', '1998/08/27', '789.876.321-00', '14-678093', '789.876.321', '345.543.897', 'Sus', 345, 'Casa', 39), 
-	('Gustavo', 'M', 55, 198, 'gustavo@gmail.com', 'Nenhuma', 'Diabete', 'O-', '2001/07/12', '876.678.123-00', '13-789.092', '876.678.123', '456.654.654', 'Unimed', 654, 'Casa', 89);
+	   ('Jayme', 10, 11),
+	    ('Metropolitano', 17, 22),
+	    ('Unimed Vitória', 18, 33),
+	    ('Posto de Saúde', 12, 44),
+	    ('Apart', 21, 44),
+	    ('Santa Casa', 53, 55),
+	    ('Santa Monica', 13, 55),
+	    ('Vitoria Apart', 9, 66),
+	    ('São camilo', 44, 77);
+	
+	CREATE TABLE Trabalha (
+	    fk_HOSPITAL_cod_hospital int,
+	    fk_MÉDICO_FK_PESSOA_CPF varchar(45)
+	);
 
-    insert into DIAGNOSTICO (cod_diag, receita, doença) 
-	values
-    	(12, 'Dieta lvre de gordura', 'Colesterol'),
-        (80, 'Analgésicos', 'Dengue'),
-        (81, 'Insulina', 'Diabete'),
-        (21, 'Vitamina', 'Anemina'),
-        (22, 'Relaxamento', 'Enxaqueca'),
-        (65, 'Antinflamatório', 'Resfriado'),
-        (66, 'Anti-histaminico', 'Caxumba'),
-        (43, 'Corticoide', 'Asma'),
-        (47, 'Broncodilatador', 'Asma');
-        
-    INSERT INTO bairro (nome, cod_bairro, FK_CIDADE_cod_cidade) VALUES
-    	('Laranjeiras', 54, 34),
-	('Santa Rosa', 23, 33),
-	('Itararé', 22, 33),	
-	('Jacaraipe', 33, 34),
-	('Itapuã', 45, 53 ),
-	('jardim da Penha', 21, 33),
-	('Vila Rubim', 12, 33),
-	('Jacaraipe', 39, 34),
-	('Itaparica', 89, 53);
+	ALTER TABLE Trabalha ADD CONSTRAINT FK_Trabalha_2
+	    FOREIGN KEY (fk_MÉDICO_FK_PESSOA_CPF)
+	    REFERENCES MEDICO (FK_PESSOA_CPF)
+	    ON DELETE SET NULL;
+	    
+	insert into trabalha(fk_HOSPITAL_cod_hospital , fk_MÉDICO_FK_PESSOA_CPF ) values
+	(10, '345.543.897-00' ), 
+	(17, '123.321.789-00'),
+	(18, '231.321.987-00'), 
+	(12, '145.541.789-00'), 
+	(21, '145.541.789-00'), 
+	(53, '567.765.554-00'), 
+	(13, '567.765.554-00'), 
+	(9, '345.543.897-00'), 
+	(44, '345.543.897-00');
+	
+	CREATE TABLE CONSULTA (
+	    dt_consulta date,
+	    hora time,
+	    cod_consulta int PRIMARY KEY,
+	    FK_MEDICO_FK_PESSOA_CPF varchar(45),
+	    FK_HOSPITAL_cod_hospital int,
+	    FK_DIAGNOSTICO_cod_diag int,
+	    FK_PESSOA_CPF varchar(45),
+	    hora_agenda time,
+	    data_agenda date,
+	    FK_STATUS_cod_status int
+	);
 
-  
-    INSERT INTO cidade (nome, cod_cidade, FK_ESTADO_cod_estado) VALUES 
-	      ('Serra', 34, 27),
-	      ('Vitoria', 33, 27),
-	      ('Pedra azul', 28, 27),
-	      ('Cariacica', 44, 27),
-      	('Vila Velha', 53, 27),
-      	('Venda Nova', 35, 27),
-	      ('Aracruz', 36, 27),
-      	('Afonso Cláudio', 12, 27),
-      	('Marechal Floriano', 66, 27);
+	ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_2
+	    FOREIGN KEY (FK_MEDICO_FK_PESSOA_CPF)
+	    REFERENCES MEDICO (FK_PESSOA_CPF)
+	    ON DELETE CASCADE;
 
-    insert into trabalha (FK_PESSOA_CPF, FK_HOSPITAL_cod_hospital)
-    	values
-    		('456.654.654-00', 10),
-        ('567.765.554-00', 17),
-        ('678.876.432-00', 18),
-        ('876.678.123-00', 12),
-        ('567.765.554-00', 21),
-        ('876.678.123-00', 53),
-        ('876.678.123-00', 13),
-        ('456.654.654-00', 11),
-        ('567.765.554-00', 44); 
-  
-    INSERT INTO consulta (dt_consulta, hora, status, cod_consulta, FK_PESSOA_CPF, FK_HOSPITAL_cod_hospital, FK_DIAGNÓSTICO_cod_diag) VALUES 
-	('2018/01/12', '18:00', 'Concluída', 21,'123.321.789-00',10, 12),
-    ('2018/08/23', '12:00', 'Concluída',  8, '123.321.789-00', 17, 80),
-    ('2018/08/23', '13:00', 'Concluída',  9, '231.123.987-00',18,81),
-    ('2018/03/09', '9:00', 'Concluída',  12, '231.123.987-00',12, 21),
-    ('2018/05/13', '14:00','Concluída', 14, '145.541.789-00',21, 22),
-    ('2018/04/11', '8:00',	'Concluída', 56, '145.541.789-00',53, 65),
-    ('2018/04/11', '9:30',	'Concluída', 57, '345.543.897-00',13, 66), 
-    ('2018/04/11', '7:00', 'Concluída', 34, '345.543.897-00',11, 43),
-    ('2018/07/12', '8:00',	'Concluída', 77, '456.654.654-00',44, 47);
+	ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_3
+	    FOREIGN KEY (FK_HOSPITAL_cod_hospital)
+	    REFERENCES HOSPITAL (cod_hospital)
+	    ON DELETE CASCADE;
+
+	ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_4
+	    FOREIGN KEY (FK_DIAGNOSTICO_cod_diag)
+	    REFERENCES DIAGNOSTICO (cod_diag)
+	    ON DELETE RESTRICT;
+
+	ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_5
+	    FOREIGN KEY (FK_PESSOA_CPF)
+	    REFERENCES PESSOA (CPF)
+	    ON DELETE CASCADE;
+
+	ALTER TABLE CONSULTA ADD CONSTRAINT FK_CONSULTA_6
+	    FOREIGN KEY (FK_STATUS_cod_status)
+	    REFERENCES STATUS (cod_status)
+	    ON DELETE CASCADE;
+
+	INSERT INTO consulta (dt_consulta, hora, FK_STATUS_cod_status , cod_consulta, FK_PESSOA_CPF, FK_HOSPITAL_cod_hospital, 		FK_DIAGNOSTICO_cod_diag, FK_MEDICO_fk_pessoa_cpf, hora_agenda , data_agenda ) VALUES 
+	('2018/01/12', '18:00', 1, 21,'456.654.654-00',10, 12, '345.543.897-00', '11:00', '2001/03/10'),
+	('2018/08/23', '12:00', 1,  8, '456.654.654-00', 17, 80, '345.543.897-00', '12:00', '2002/04/11'),
+	('2018/08/23', '13:00', 2,  9, '231.321.987-00',18,81, '123.321.789-00', '13:00', '2003/05/12'),
+	('2018/03/09', '9:00', 1,  12, '231.321.987-00',12, 21, '123.321.789-00', '7:00', '2000/02/9'),
+	('2018/05/13', '14:00', 1, 14, '145.541.789-00',21, 22,'123.321.789-00', '8:00', '2004/05/8'),
+	('2018/04/11', '8:00', 2, 56, '145.541.789-00',53, 65, '231.321.987-00', '9:00', '2005/07/7'),
+	('2018/04/11', '9:30', 1, 57, '345.543.897-00',13, 66, '231.321.987-00', '10:00', '2010/08/6'), 
+	('2018/04/11', '7:00',  1, 34, '345.543.897-00',9, 43, '145.541.789-00', '14:00','2018/03/5'), 
+	('2018/07/12', '8:00', 1, 77, '456.654.654-00',44, 47, '567.765.554-00', '15:00', '2017/02/4');
+
 
 #### 8.2 INCLUSÃO DO SCRIPT PARA CRIAÇÃO DE TABELA E INSERÇÃO DOS DADOS
         a) Junção dos scripts anteriores em um único script 
