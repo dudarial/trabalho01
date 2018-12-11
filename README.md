@@ -508,6 +508,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 	    nome_estado varchar(30),
 	    cod_estado int PRIMARY KEY
 	);
+	
 	INSERT INTO estado (nome_estado, cod_estado) VALUES 
 		('Espírito Santo', 27),
 		('São Paulo', 11),
@@ -540,8 +541,6 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 		('Aracruz', 36, 27),
 		('Afonso Cláudio', 12, 27),
 		('Marechal Floriano', 66, 27);
-
-
 
 	CREATE TABLE BAIRRO (
 	    nome_bairro varchar(30),
